@@ -1,14 +1,11 @@
 import axios from 'axios'
 import {routes} from "../../src/containers/Router/index";
 import {push} from "connected-react-router";
-
-
-const baseUrl = 'https://us-central1-missao-newton.cloudfunctions.net/'
-const baseID = 'FourFoodA'
+import { BaseUrl } from "./BaseUrl";
 
 export const doLogin = (user, pass) => async (dispatch) => {
     try {
-        const response = await axios.post(`${baseUrl}${baseID}/login`, {
+        const response = await axios.post(`${BaseUrl}/login`, {
             email: user,
             password: pass
         });
@@ -24,7 +21,7 @@ export const doLogin = (user, pass) => async (dispatch) => {
 }
 
 export const doSignUp = (name, email, cpf, password) => (dispatch) => {
-    const userSignup = axios.post(`${baseUrl}${baseID}/signup`, {
+    const userSignup = axios.post(`${BaseUrl}/signup`, {
         name, email, cpf, password
     }).then(response => {
         localStorage.setItem("token", response.data.token)
@@ -41,7 +38,7 @@ export const doSignUp = (name, email, cpf, password) => (dispatch) => {
 export const doNewAddress = (data) => async (dispatch) => {
     try {
         const token = localStorage.getItem("token")
-        const response = await axios.put(`${baseUrl}${baseID}/address`, data, {
+        const response = await axios.put(`${BaseUrl}/address`, data, {
             headers: {
                 auth: token
             }
@@ -54,14 +51,9 @@ export const doNewAddress = (data) => async (dispatch) => {
     }
 }
 
-export const setErrorMsg = (data) => ({
-    type: "SET_ERROR_MSG",
-    payload: data,
-});
-
 export const doDatarefresh = (name, email, cpf) => (dispatch) => {
     const token = localStorage.getItem("token")
-    const userDataRefresh = axios.put(`${baseUrl}${baseID}/profile`, {
+    const userDataRefresh = axios.put(`${BaseUrl}/profile`, {
         name, email, cpf
     }, {
         headers: {
@@ -79,3 +71,27 @@ export const doDatarefresh = (name, email, cpf) => (dispatch) => {
         dispatch(setErrorMsg(error.response.data.message))
     })
 }
+
+export const doOrdersHistory = () => (dispatch) => {
+    const token = localStorage.getItem("token")
+    const ordersHistory = axios.get(`${BaseUrl}/orders/history`, {
+        headers: {
+            auth: token
+        }
+    }).then(response => {
+        dispatch(setOrdersHistory(response.data.orders))
+    }).catch(error => {
+        console.log(error.response.data.message)
+        dispatch(setErrorMsg(error.response.data.message))
+    })
+}
+
+export const setErrorMsg = (data) => ({
+    type: "SET_ERROR_MSG",
+    payload: data,
+});
+
+export const setOrdersHistory = (data) => ({
+    type: "SET_ORDER_HISTORY",
+    payload: data,
+});
