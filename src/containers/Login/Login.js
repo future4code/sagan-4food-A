@@ -4,28 +4,74 @@ import {doLogin} from '../../actions/login'
 import {routes} from "../Router/index";
 import {push} from "connected-react-router";
 import logoimg from '../../img/logo-future-eats-invert.svg'
-import {LoginWrapper, LoginImg, StyledText, StyledTextField, StyledButton, StyledTextHD} from '../../style/styled'
+import {StyledForm, StyledOutlinedInput, LoginWrapper, LoginImg, StyledText, StyledTextField, StyledButton, StyledTextHD} from '../../style/styled'
+import IconButton from "@material-ui/core/IconButton";
+import InputLabel from "@material-ui/core/InputLabel";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import FormControl from "@material-ui/core/FormControl";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 function Login(props) {
-const [inputUser, setInputUser] = useState("astrodev@future4.com");
-const [inputPass, setInputPass] = useState("123456");
+const [values, setValues] = React.useState({
+    user: "",
+    pass: "",
+    passcError: false,
+    showPassword: false
+});
+
+const handleChange = prop => event => {
+setValues({ ...values, [prop]: event.target.value });
+};
+
+const handleClickShowPassword = () => {
+setValues({ ...values, showPassword: !values.showPassword });
+};
+
+const handleMouseDownPassword = event => {
+event.preventDefault();
+};
 
 const handleWhithSubmit = async (event) => {
     event.preventDefault()
-    await props.doLogin(inputUser, inputPass)
-    setInputUser("")
-    setInputPass("")
+    await props.doLogin(values.user, values.pass)
 }
 
     return (
         <LoginWrapper>
             <LoginImg src={logoimg} class="Logo FourFoodA" />
             <StyledText variant='subtitle1'>Entrar</StyledText>
-            <StyledTextField InputLabelProps={{ shrink: true }} variant="outlined" label='E-mail' placeholder='email@email.com' type='email' required onChange={(event) => {setInputUser(event.target.value)}} value={inputUser}></StyledTextField>
-            <StyledTextField InputLabelProps={{ shrink: true }} variant="outlined" label='Senha' placeholder='mínimo 6 caracteres' type='password' required onChange={(event) => {setInputPass(event.target.value)}} value={inputPass}></StyledTextField>
-            <StyledButton variant='contained' type='button' onClick={handleWhithSubmit}>
-                <StyledTextHD>Entrar</StyledTextHD>
-            </StyledButton>
+            <StyledForm onSubmit={handleWhithSubmit}>
+                <StyledTextField InputLabelProps={{ shrink: true }} variant="outlined" label='E-mail' placeholder='email@email.com' type='email' required onChange={handleChange("user")} value={values.user}></StyledTextField>
+                
+                <FormControl variant="outlined">
+                    <InputLabel htmlFor="senha">Senha</InputLabel>
+                    <StyledOutlinedInput
+                        id="senha"
+                        required={true}
+                        type={values.showPassword ? "text" : "password"}
+                        value={values.pass}
+                        onChange={handleChange("pass")}
+                        placeholder='mínimo 6 caracteres'
+                        endAdornment={
+                        <InputAdornment position="end">
+                            <IconButton
+                                onClick={handleClickShowPassword}
+                                onMouseDown={handleMouseDownPassword}
+                                edge="end"
+                            >
+                        {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                            </IconButton>
+                        </InputAdornment>
+                        }
+                        labelWidth={70}
+                    />
+                </FormControl>
+                
+                <StyledButton variant='contained' type='submit'>
+                    <StyledTextHD>Entrar</StyledTextHD>
+                </StyledButton>
+            </StyledForm>
             <StyledText variant='subtitle1' onClick={props.doSignUp}>Não possui cadastro? Clique aqui.</StyledText>
         </LoginWrapper>
     );
