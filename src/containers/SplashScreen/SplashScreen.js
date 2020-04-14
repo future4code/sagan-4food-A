@@ -4,6 +4,8 @@ import {routes} from "../Router/index";
 import {push} from "connected-react-router";
 import logoimg from '../../img/logo-future-eats.svg'
 import {WrapperRed, LoginImg} from '../../style/styled'
+import Fade from '@material-ui/core/Fade';
+
 
 function SplashScreen(props) {
 
@@ -19,9 +21,14 @@ function SplashScreen(props) {
         }
     }
     return (
-        <WrapperRed onClick={handleWhithClick}>
-            <LoginImg src={logoimg} class="Logo FourFoodA" />
-        </WrapperRed>
+        <div>
+            <Fade in={true} timeout={2000}>
+                <WrapperRed onClick={handleWhithClick}>
+                        <LoginImg src={logoimg} class="Logo FourFoodA" />
+                </WrapperRed>
+            </Fade>
+        </div>
+
     );
 }
 
