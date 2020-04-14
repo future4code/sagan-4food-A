@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import TextField from "@material-ui/core/TextField";
 import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-
+import OutlinedInput from "@material-ui/core/OutlinedInput";
 
 export const LoginWrapper = styled.div`
 display: flex;
@@ -10,6 +10,13 @@ flex-direction: column;
 justify-content: flex-start;
 align-items: center;
 `
+export const StyledForm = styled.form`
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+`
+
 export const LoginImg = styled.img`
 margin: 15px 128px 0px 128px;
 `
@@ -56,4 +63,12 @@ width: 100vw;
 height: 100vh;
 display: flex;
 justify-content: center;
+`
+
+export const StyledOutlinedInput = styled(OutlinedInput)`
+width: 328px;
+height: 56px;
+border-radius: 1px;
+margin-top: 8px;
+margin-bottom: 8px;
 `
