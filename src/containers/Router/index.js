@@ -1,14 +1,21 @@
 import React from "react";
 import { ConnectedRouter } from "connected-react-router";
 import { Switch, Route } from "react-router-dom";
+import RestaurantDetail from "../RestaurantDetail/index";
 
-const routes = {};
+const routes = {
+  RestaurantDetailPage: "/restaurant/detail",
+};
 
 function Router(props) {
   return (
     <ConnectedRouter history={props.history}>
       <Switch>
-        <Route path={routes.root} component={() => <div />} />
+        <Route
+          exact
+          path={routes.RestaurantDetailPage}
+          component={RestaurantDetail}
+        />
       </Switch>
     </ConnectedRouter>
   );
