@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {connect} from "react-redux";
 import {doLogin} from '../../actions/login'
 import {goBack} from "connected-react-router";

@@ -3,6 +3,11 @@ import TextField from "@material-ui/core/TextField";
 import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import OutlinedInput from "@material-ui/core/OutlinedInput";
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+
+export const StyledAccessTimeIcon = styled(AccessTimeIcon)`
+color: white;
+`
 
 export const LoginWrapper = styled.div`
 display: flex;
@@ -66,6 +71,15 @@ height: 100vh;
 display: flex;
 justify-content: center;
 `
+export const WrapperRedPedidos = styled.div`
+background-color: #e8222e;
+padding: 20px;
+display: flex;
+justify-content: left;
+min-height: 20vh;
+width: 100vw;
+z-index: -1;
+`
 
 export const StyledOutlinedInput = styled(OutlinedInput)`
 width: 328px;
@@ -87,4 +101,15 @@ padding: 10px;
 border: 1pt gray solid;
 border-radius: 5px;
 width: 90vw;
+`
+export const PedidosContWrap = styled.div`
+display: flex;
+justify-content: center;
+align-content: center;
+flex-direction: column;
+padding-left: 30px;
+width: 100%;
+`
+export const StyledTextWhite = styled(Typography)`
+color: white;
 `

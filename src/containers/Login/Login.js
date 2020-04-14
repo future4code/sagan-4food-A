@@ -82,8 +82,6 @@ const mapStateToProps = state => ({});
 const mapDispatchToProps = (dispatch) => ({
     doLogin: (inputUser, inputPass) => dispatch(doLogin(inputUser, inputPass)),
     doSignUp: () => dispatch(push(routes.signUp))
-
-
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

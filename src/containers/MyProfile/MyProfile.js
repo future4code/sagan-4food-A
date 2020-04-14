@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {connect} from "react-redux";
 import {routes} from "../Router/index";
 import {push} from "connected-react-router";
@@ -6,7 +6,7 @@ import {LoginWrapper, MPdiv, StyledTextHD} from '../../style/styled'
 import HistoryDivider from '../HistoryDivider/HistoryDivider';
 import EditIcon from '@material-ui/icons/Edit';
 import {doOrdersHistory} from '../../actions/login'
-import CardHistory from '../CardHistory/CardHistory'
+import CardHistory from '../../components/CardHistory/CardHistory'
 
 function MyProfile(props) {
     useEffect(() => {
