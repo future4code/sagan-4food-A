@@ -8,6 +8,8 @@ width: 360px;
 height: 64px;
 display: flex;
 flex-direction: row;
+position: absolute;
+bottom: 0;
 `
 
 export const HomeIconStyled = styled(HomeOutlined)`
@@ -30,4 +32,7 @@ object-fit: contain;
 export const IconsWrapper = styled.div`
 width: 120px;
 height: 49px;
+display: flex;
+align-items: center;
+justify-content: center;
 `

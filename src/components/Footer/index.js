@@ -7,15 +7,18 @@ class Footer extends Component {
         return (
             <FooterWrapper>
                 <IconsWrapper>
-                    <HomeIconStyled color="primary"></HomeIconStyled>
+                <img src={require("./Images/homepage.png")} type="icon" alt="ícone clicável home"></img>
+                    {/* <HomeIconStyled color="primary"></HomeIconStyled> */}
                 </IconsWrapper>
 
                 <IconsWrapper>
-                    <ShoppingCartIconStyled color="primary"></ShoppingCartIconStyled>
+                <img src={require("./Images/shopping-cart.png")} type="icon" alt="ícone clicável carrinho de pedidos"></img>
+                {/* <ShoppingCartIconStyled color="primary"></ShoppingCartIconStyled> */}
                 </IconsWrapper>
 
                 <IconsWrapper>
-                    <UserIconStyled color="primary"></UserIconStyled>
+                <img src={require("./Images/avatar.png")} type="icon" alt="ícone clicável meu perfil"></img>
+                    {/* <UserIconStyled color="primary"></UserIconStyled> */}
                 </IconsWrapper>
             </FooterWrapper>
         )
