@@ -1,0 +1,115 @@
+import styled from 'styled-components'
+import TextField from "@material-ui/core/TextField";
+import { Typography } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import OutlinedInput from "@material-ui/core/OutlinedInput";
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+
+export const StyledAccessTimeIcon = styled(AccessTimeIcon)`
+color: white;
+`
+
+export const LoginWrapper = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+`
+export const StyledForm = styled.form`
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+`
+
+export const LoginImg = styled.img`
+margin: 15px 128px 0px 128px;
+`
+export const StyledText = styled(Typography)`
+margin-top: 26px;
+`
+export const StyledTextField = styled(TextField)`
+width: 328px;
+height: 56px;
+border-radius: 1px;
+margin-top: 8px;
+margin-bottom: 8px;
+`
+export const StyledButton = styled(Button)`
+width: 328px;
+height: 42px;
+border-radius: 2px;
+background-color: #e8222e;
+font-size: 16px;
+font-family: 'Roboto';
+margin-top: 16px;
+margin-bottom: 8px;
+`
+export const StyledTextHD = styled(Typography)`
+`
+export const StyledTextRed = styled(Typography)`
+color: red;
+`
+export const HDWrapper = styled.div`
+width: 100vw;
+`
+export const HDWrapperCont = styled.div`
+display: flex;
+align-items: center;
+justify-content: left;
+padding: 5px;
+`
+export const HDWrapperCenter = styled.div`
+align-self: center;
+text-align: center;
+width: 85%;
+`
+export const WrapperRed = styled.div`
+background-color: #e8222e;
+width: 100vw;
+height: 100vh;
+display: flex;
+justify-content: center;
+`
+export const WrapperRedPedidos = styled.div`
+background-color: #e8222e;
+padding: 20px;
+display: flex;
+justify-content: left;
+min-height: 20vh;
+width: 100vw;
+z-index: -1;
+`
+
+export const StyledOutlinedInput = styled(OutlinedInput)`
+width: 328px;
+height: 56px;
+border-radius: 1px;
+margin-top: 8px;
+margin-bottom: 8px;
+`
+export const MPdiv = styled.div`
+display: flex;
+padding: 10px;
+margin-top: 5px;
+width: 100%;
+justify-content: space-between;
+`
+export const CardHistoryWrap = styled.div`
+margin: 5px;
+padding: 10px;
+border: 1pt gray solid;
+border-radius: 5px;
+width: 90vw;
+`
+export const PedidosContWrap = styled.div`
+display: flex;
+justify-content: center;
+align-content: center;
+flex-direction: column;
+padding-left: 30px;
+width: 100%;
+`
+export const StyledTextWhite = styled(Typography)`
+color: white;
+`
