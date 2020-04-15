@@ -11,6 +11,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import FormControl from "@material-ui/core/FormControl";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import CardRestaurante from '../../components/CardRestaurante/CardRestaurante'
 
 function Login(props) {
 const [values, setValues] = React.useState({

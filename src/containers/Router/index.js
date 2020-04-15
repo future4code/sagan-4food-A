@@ -8,7 +8,8 @@ import NewAddress from '../../containers/NewAddress/NewAddress'
 import SplashScreen from '../SplashScreen/SplashScreen'
 import UserEdit from "../UserEdit/UserEdit";
 import MyProfile from "../MyProfile/MyProfile";
-import PedidosAbertos from '../../components/PedidosAbertos/PedidosAbertos'
+import CardRestaurante from "../../components/CardRestaurante/CardRestaurante";
+
 
 export const routes = {
   RestaurantDetailPage: "/restaurant/detail",
@@ -32,7 +33,7 @@ function Router(props) {
         <Route exact path={routes.signUp} component={SignUp} />
         <Route exact path={routes.useredit} component={UserEdit} />
         <Route exact path={routes.myprofile} component={MyProfile} />
-        <Route exact path={routes.pedidosabertos} component={PedidosAbertos} />
+        <Route exact path={routes.pedidosabertos} component={CardRestaurante} />
       </Switch>
     </ConnectedRouter>
   );

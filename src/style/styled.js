@@ -4,11 +4,11 @@ import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import CardMedia from "@material-ui/core/CardMedia";
 
 export const StyledAccessTimeIcon = styled(AccessTimeIcon)`
 color: white;
 `
-
 export const LoginWrapper = styled.div`
 display: flex;
 flex-direction: column;
@@ -80,7 +80,6 @@ min-height: 20vh;
 width: 100vw;
 z-index: -1;
 `
-
 export const StyledOutlinedInput = styled(OutlinedInput)`
 width: 328px;
 height: 56px;
@@ -112,4 +111,15 @@ width: 100%;
 `
 export const StyledTextWhite = styled(Typography)`
 color: white;
+`
+export const RestCardSpace = styled.div`
+display: flex;
+justify-content: space-between;
+`
+export const RestCard = styled.div`
+border-radius: 5px;
+width: 90%;
+`
+export const StyledDivBG = styled.div`
+border-radius: 5px 5px 0 0 ;
 `
