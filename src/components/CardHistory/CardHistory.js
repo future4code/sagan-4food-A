@@ -1,14 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import {connect} from "react-redux";
-import {routes} from "../Router/index";
-import {push} from "connected-react-router";
-import logoimg from '../../img/logo-future-eats.svg'
+import React from 'react';
 import {StyledTextRed, StyledTextHD, CardHistoryWrap} from '../../style/styled'
-import Fade from '@material-ui/core/Fade';
 import * as moment from 'moment';
 import 'moment/locale/pt-br';
-
-
 
 function CardHistory(props) {
     return (
@@ -20,9 +13,5 @@ function CardHistory(props) {
     );
 }
 
-const mapStateToProps = state => ({});
-
-const mapDispatchToProps = (dispatch) => ({})
-
-export default connect(mapStateToProps, mapDispatchToProps)(CardHistory)
+export default CardHistory
 
