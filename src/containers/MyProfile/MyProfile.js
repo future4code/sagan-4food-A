@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {connect} from "react-redux";
 import {routes} from "../Router/index";
 import {push} from "connected-react-router";
-import {LoginWrapper, MPdiv, StyledTextHD} from '../../style/styled'
+import {DefaultWrapper, MPdiv, StyledTextHD} from '../../style/styled'
 import HistoryDivider from '../HistoryDivider/HistoryDivider';
 import EditIcon from '@material-ui/icons/Edit';
 import {doOrdersHistory} from '../../actions/login'
@@ -17,7 +17,7 @@ function MyProfile(props) {
 const userData = JSON.parse(localStorage.getItem('user'))
 
     return (
-        <LoginWrapper>
+        <DefaultWrapper>
                 <HistoryDivider showGoBack={true} head={'Meu Perfil'}/>
             <MPdiv>
                 <div>
@@ -38,7 +38,7 @@ const userData = JSON.parse(localStorage.getItem('user'))
                     <EditIcon />
                 </div>
             </MPdiv>
-            <LoginWrapper>
+            <DefaultWrapper>
                 <StyledTextHD>Histórico de pedidos:</StyledTextHD>
                 <StyledTextHD variant='subtitle1' >{props.Pedidos.length === 1? <strong>Você ainda não tem pedidos.</strong> : ""}</StyledTextHD>
                 {props.Pedidos.length > 1 && props.Pedidos.map((item) => (
@@ -49,9 +49,9 @@ const userData = JSON.parse(localStorage.getItem('user'))
                     />
         ))}
 
-            </LoginWrapper>
+            </DefaultWrapper>
             <Footer />
-        </LoginWrapper>
+        </DefaultWrapper>
     );
 }
 
