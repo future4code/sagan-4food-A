@@ -11,12 +11,11 @@ export const CardMediaStyled = styled(CardMedia)`
 `;
 export const CardStyled = styled(Card)`
   display: flex;
-
   width: 328px;
   height: 112px;
   border-radius: 8px;
   border: solid 1px #b8b8b8;
-  margin: 5px 16px;
+  margin: 10px auto;
 `;
 export const TypographyWrapperTitle = styled(Typography)`
   width: 167px;
@@ -42,12 +41,13 @@ export const TypographyPrice = styled(Typography)`
 `;
 
 export const ButtonAddAndRemove = styled(Button)`
+  margin: 0 1% 0 0;
   position: absolute;
-  right: 2px;
+  right: 0;
   bottom: 0%;
   width: 90px;
   height: 31px;
-  border-radius: 8px;
+  border-radius: 8px 0px 8px 0;
   border: solid 1px #000000;
   padding: 0;
   font-family: Roboto;

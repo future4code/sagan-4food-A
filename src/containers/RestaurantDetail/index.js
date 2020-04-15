@@ -30,7 +30,6 @@ const RestaurantDetail = (props) => {
     categoryRestaurantDuplicate.filter((category, index) => {
       return categoryRestaurantDuplicate.indexOf(category) === index;
     });
-
   return (
     <div>
       {categoryRestaurantNoDuplicate &&
@@ -47,6 +46,7 @@ const RestaurantDetail = (props) => {
                     description={food.description}
                     img={food.photoUrl}
                     price={food.price}
+                    id={food.id}
                   />
                 ))}
             </div>
