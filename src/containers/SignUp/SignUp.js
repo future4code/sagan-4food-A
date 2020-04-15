@@ -11,9 +11,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
-
 function SignUp(props) {
-
 const [values, setValues] = React.useState({
     passc: "",
     pass: "",
@@ -36,7 +34,6 @@ const handleMouseDownPassword = event => {
 event.preventDefault();
 };
 
-
 const handleWhithSubmit = async (event) => {
     event.preventDefault()
     if(values.pass != values.passc){
@@ -45,12 +42,12 @@ const handleWhithSubmit = async (event) => {
     await props.doSignUp(values.nome, values.email, values.cpf, values.pass)
     }
 }
-
     return (
         <LoginWrapper>
             <HistoryDivider/>
             <LoginImg src={logoimg} class="Logo FourFoodA" />
             <StyledText variant='subtitle1'>Cadastrar</StyledText>
+            <StyledText color='error' variant='subtitle1'>{props.ErroMsg}</StyledText>
             <StyledForm onSubmit={handleWhithSubmit}>
                 <StyledTextField InputLabelProps={{ shrink: true }} variant="outlined" label='Nome' placeholder='Nome e sobrenome' type='text' required onChange={handleChange("nome")} value={values.nome}></StyledTextField>
                 <StyledTextField InputLabelProps={{ shrink: true }} variant="outlined" label='E-mail' placeholder='email@email.com' type='email' required onChange={handleChange("email")} value={values.email}></StyledTextField>
@@ -111,7 +108,7 @@ const handleWhithSubmit = async (event) => {
     );
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({ErroMsg: state.Error});
 
 const mapDispatchToProps = (dispatch) => ({
     doSignUp: (inputNome, inputEmail, inputCpf, inputPass) => dispatch(doSignUp(inputNome, inputEmail, inputCpf, inputPass)),
