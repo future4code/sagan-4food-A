@@ -6,9 +6,7 @@ import logoimg from '../../img/logo-future-eats.svg'
 import {WrapperRed, LoginImg} from '../../style/styled'
 import Fade from '@material-ui/core/Fade';
 
-
 function SplashScreen(props) {
-
     const handleWhithClick = (event) => {
         event.preventDefault()
         const token = localStorage.getItem('token')
@@ -28,7 +26,6 @@ function SplashScreen(props) {
                 </WrapperRed>
             </Fade>
         </div>
-
     );
 }
 
@@ -37,7 +34,6 @@ const mapStateToProps = state => ({});
 const mapDispatchToProps = (dispatch) => ({
     goLogin: () => dispatch(push(routes.login)),
     goHome: () => dispatch(push(routes.home))
-
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SplashScreen)
