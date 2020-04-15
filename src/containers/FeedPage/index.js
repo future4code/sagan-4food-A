@@ -4,32 +4,23 @@ import CartRestaurant from "../CartRestaurant"
 import { connect } from 'react-redux'
 import { getRestaurants } from "../../actions"
 import { ContentHomeWrapper, TextFieldSearchStyled} from './styles'
+import HistoryDivider from '../HistoryDivider/HistoryDivider'
 
 class FeedPage extends Component {
-
-
-
-
     componentDidMount() {
         this.props.getRestaurants()
     }
-
     render() {
         console.log(this.props.restaurants)
         const { restaurants } = this.props
         return (
-
             <>              
                 <HistoryDivider head={"IFuture"}/>
-
                 <ContentHomeWrapper>
-
                 <form autoComplete="on">
                     <TextFieldSearchStyled  label="Restaurante" variant="outlined" />
                 </form>
-
                         {/* FALTA MENU COM SCROLL LATERAL */}
-                
                     {restaurants.map(restaurants => {
                         return (
                             <CartRestaurant
@@ -42,8 +33,6 @@ class FeedPage extends Component {
                     })}
                 </ContentHomeWrapper>
                 <Footer />
-
-
             </>
         )
     }
