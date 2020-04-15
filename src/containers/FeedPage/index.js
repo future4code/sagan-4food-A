@@ -4,6 +4,7 @@ import CartRestaurant from "../CartRestaurant"
 import { connect } from 'react-redux'
 import { getRestaurants } from "../../actions"
 import styled from "styled-components"
+import HistoryDivider from '../../containers/HistoryDivider/HistoryDivider'
 
 import { TextField } from '@material-ui/core'
 
@@ -27,7 +28,7 @@ backdrop-filter: blur(10px);
 box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
 background-color: #ffffff;
 margin-bottom: 2vw;
-  `
+`
 
 const TextFieldStyled = styled(TextField) `
 width: 328px;
@@ -52,7 +53,7 @@ class FeedPage extends Component {
         return (
             <>
                 <Box> </Box>
-
+                <HistoryDivider/>
                 <ContentHomeWrapper>
 
                 <form autoComplete="on">

@@ -13,6 +13,8 @@ export const doLogin = (user, pass) => async (dispatch) => {
         localStorage.setItem("user", JSON.stringify(response.data.user))
         if (response.data.user.hasAddress === false) {
             dispatch(push(routes.newAddress))
+        } else {
+            dispatch(push(routes.feed))
         }
     } catch (e) {
         alert("Erro ao logar. Entre em contato conosco")
@@ -45,9 +47,11 @@ export const doNewAddress = (data) => async (dispatch) => {
         })
         localStorage.setItem("token", response.data.token)
         localStorage.setItem("user", JSON.stringify(response.data.user))
+        dispatch(push(routes.feed))
     } catch (e) {
         alert("Erro ao logar. Entre em contato conosco")
         console.error(e)
+        dispatch(push(routes.newAddress))
     }
 }
 
@@ -64,7 +68,7 @@ export const doDatarefresh = (name, email, cpf) => (dispatch) => {
         if (response.data.user.hasAddress === false) {
             dispatch(push(routes.newAddress))
         } else {
-            dispatch(push(routes.root))
+            dispatch(push(routes.feed))
         }
     }).catch(error => {
         console.log(error.response.data.message)
