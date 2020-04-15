@@ -9,8 +9,10 @@ import SplashScreen from '../SplashScreen/SplashScreen'
 import UserEdit from "../UserEdit/UserEdit";
 import MyProfile from "../MyProfile/MyProfile";
 import PedidosAbertos from '../../components/PedidosAbertos/PedidosAbertos'
+import FeedPage from '../FeedPage'
 
 export const routes = {
+  feed: "/home",
   RestaurantDetailPage: "/restaurant/detail",
   login: "/login",
   newAddress: "/address/new",
@@ -25,6 +27,7 @@ function Router(props) {
   return (
     <ConnectedRouter history={props.history}>
       <Switch>
+        <Route exact path={routes.feed} component={FeedPage} />
         <Route exact path={routes.RestaurantDetailPage} component={RestaurantDetail} />
         <Route exact path={routes.root} component={SplashScreen} />
         <Route exact path={routes.login} component={Login} />
