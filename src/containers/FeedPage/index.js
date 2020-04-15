@@ -18,6 +18,7 @@ class FeedPage extends Component {
         console.log(this.props.restaurants)
         const { restaurants } = this.props
         return (
+
             <>              
                 <HistoryDivider head={"IFuture"}/>
 

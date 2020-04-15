@@ -1,14 +1,14 @@
 import React from 'react';
-import {StyledTextRed, StyledTextHD, CardHistoryWrap} from '../../style/styled'
+import {StyledTextHD, CardHistoryWrap} from '../../style/styled'
 import * as moment from 'moment';
 import 'moment/locale/pt-br';
 
 function CardHistory(props) {
     return (
         <CardHistoryWrap>
-            <StyledTextRed>{props.restaurantName}</StyledTextRed>
+            <StyledTextHD color={'primary'}>{props.restaurantName}</StyledTextHD>
             <StyledTextHD>{moment(props.createdAt).format('DD MMMM YYYY')}</StyledTextHD>
-            <StyledTextHD><strong>SUBTOTAL R${Math.round(props.totalPrice)},00</strong></StyledTextHD>
+            <StyledTextHD><strong>SUBTOTAL R${props.totalPrice.toLocaleString("pt-BR", {minimumFractionDigits: 2})}</strong></StyledTextHD>
         </CardHistoryWrap>
     );
 }

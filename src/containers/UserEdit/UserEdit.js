@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {doDatarefresh} from '../../actions/login'
 import logoimg from '../../img/logo-future-eats-invert.svg'
 import HistoryDivider from '../HistoryDivider/HistoryDivider'
-import {StyledForm, LoginWrapper, LoginImg, StyledText, StyledTextField, StyledButton, StyledTextHD} from '../../style/styled'
+import {StyledForm, DefaultWrapper, LoginImg, StyledText, StyledTextField, StyledButton, StyledTextHD} from '../../style/styled'
 
 function UserEdit(props) {
     useEffect(() => {
@@ -30,7 +30,7 @@ const handleWhithSubmit = (event) => {
     props.doDatarefresh(values.nome, values.email, values.cpf)
 }
     return (
-        <LoginWrapper>
+        <DefaultWrapper>
             <HistoryDivider/>
             <LoginImg src={logoimg} class="Logo FourFoodA" />
             <StyledText variant='subtitle1'>Modificar dados</StyledText>
@@ -43,7 +43,7 @@ const handleWhithSubmit = (event) => {
                 <StyledTextHD>Salvar</StyledTextHD>
                 </StyledButton>
             </StyledForm>
-        </LoginWrapper>
+        </DefaultWrapper>
     );
 }
 

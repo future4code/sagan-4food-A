@@ -4,6 +4,7 @@ import restaurants from "./restaurants";
 import SaveDetailInState from "./RestaurantDetailReducer";
 import Error from './error'
 import orderHistory from './orderHistory'
+import activeorders from './activeorders'
 
 export const generateReducers = (history) =>
   combineReducers({
@@ -11,5 +12,6 @@ export const generateReducers = (history) =>
     restaurants,
     SaveDetailInState,
     Error,
-    orderHistory
+    orderHistory,
+    activeorders
   });

@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {doSignUp} from '../../actions/login'
 import logoimg from '../../img/logo-future-eats-invert.svg'
 import HistoryDivider from '../HistoryDivider/HistoryDivider'
-import {StyledOutlinedInput, StyledForm, LoginWrapper, LoginImg, StyledText, StyledTextField, StyledButton, StyledTextHD} from '../../style/styled'
+import {StyledOutlinedInput, StyledForm, DefaultWrapper, LoginImg, StyledText, StyledTextField, StyledButton, StyledTextHD} from '../../style/styled'
 import IconButton from "@material-ui/core/IconButton";
 import InputLabel from "@material-ui/core/InputLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -43,8 +43,8 @@ const handleWhithSubmit = async (event) => {
     }
 }
     return (
-        <LoginWrapper>
-            <HistoryDivider/>
+        <DefaultWrapper>
+                <HistoryDivider/>
             <LoginImg src={logoimg} class="Logo FourFoodA" />
             <StyledText variant='subtitle1'>Cadastrar</StyledText>
             <StyledText color='error' variant='subtitle1'>{props.ErroMsg}</StyledText>
@@ -104,7 +104,7 @@ const handleWhithSubmit = async (event) => {
                 <StyledTextHD>Criar</StyledTextHD>
                 </StyledButton>
             </StyledForm>
-        </LoginWrapper>
+        </DefaultWrapper>
     );
 }
 
