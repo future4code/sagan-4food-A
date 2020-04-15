@@ -42,7 +42,9 @@ margin-bottom: 8px;
 `
 export const StyledTextHD = styled(Typography)`
 `
-
+export const StyledTextRed = styled(Typography)`
+color: red;
+`
 export const HDWrapper = styled.div`
 width: 100vw;
 `
@@ -71,4 +73,18 @@ height: 56px;
 border-radius: 1px;
 margin-top: 8px;
 margin-bottom: 8px;
+`
+export const MPdiv = styled.div`
+display: flex;
+padding: 10px;
+margin-top: 5px;
+width: 100%;
+justify-content: space-between;
+`
+export const CardHistoryWrap = styled.div`
+margin: 5px;
+padding: 10px;
+border: 1pt gray solid;
+border-radius: 5px;
+width: 90vw;
 `
