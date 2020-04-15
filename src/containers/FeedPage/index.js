@@ -53,7 +53,7 @@ class FeedPage extends Component {
         return (
             <>
                 <Box> </Box>
-                <HistoryDivider/>
+                <HistoryDivider showGoBack={false} head={'teste'}/>
                 <ContentHomeWrapper>
 
                 <form autoComplete="on">

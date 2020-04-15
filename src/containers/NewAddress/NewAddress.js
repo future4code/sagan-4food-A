@@ -28,7 +28,7 @@ const handleWhithSubmit = async (event) => {
 
     return (
         <LoginWrapper>
-            <HistoryDivider/>
+                <HistoryDivider showGoBack={true}/>
             <StyledText variant='subtitle1'>Meu endereço</StyledText>
             <StyledTextField InputLabelProps={{ shrink: true }} variant="outlined" label='Logradouro' placeholder='Rua / Av.' type='text' required onChange={(event) => {setInputRua(event.target.value)}} value={inputRua}></StyledTextField>
             <StyledTextField InputLabelProps={{ shrink: true }} variant="outlined" label='Número' placeholder='Número' type='text' required onChange={(event) => {setInputNum(event.target.value)}} value={inputNum}></StyledTextField>

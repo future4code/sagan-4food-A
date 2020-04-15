@@ -14,7 +14,7 @@ function HistoryDivider(props) {
     return (
         <HDWrapper>
             <HDWrapperCont>
-                <img src={backImg} onClick={props.goBack}/>
+                {props.showGoBack ? <img src={backImg} onClick={props.goBack}/> : ""}
                 <HDWrapperCenter>
                     <StyledTextHD variant='subtitle2'>{props.head}</StyledTextHD>
                 </HDWrapperCenter>

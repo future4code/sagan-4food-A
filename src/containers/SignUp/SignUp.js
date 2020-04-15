@@ -44,7 +44,7 @@ const handleWhithSubmit = async (event) => {
 }
     return (
         <LoginWrapper>
-            <HistoryDivider/>
+                <HistoryDivider/>
             <LoginImg src={logoimg} class="Logo FourFoodA" />
             <StyledText variant='subtitle1'>Cadastrar</StyledText>
             <StyledText color='error' variant='subtitle1'>{props.ErroMsg}</StyledText>

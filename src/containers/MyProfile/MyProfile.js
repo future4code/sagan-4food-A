@@ -18,7 +18,7 @@ const userData = JSON.parse(localStorage.getItem('user'))
 
     return (
         <LoginWrapper>
-            <HistoryDivider head={'Meu perfil'}/>
+                <HistoryDivider showGoBack={true} head={'Meu Perfil'}/>
             <MPdiv>
                 <div>
                     <StyledTextHD><strong>{userData.name}</strong></StyledTextHD>
