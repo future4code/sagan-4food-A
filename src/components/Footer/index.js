@@ -14,15 +14,13 @@ function Footer(props) {
         return (
             <FooterWrapper>
                 <div>
-                    {props.ActiveOrders.restaurantName ?
+                    {props.ActiveOrders === null ? "" :
                         <PedidosAbertos
                             restaurantName={props.ActiveOrders.restaurantName}
                             totalPrice={props.ActiveOrders.totalPrice}
                             createdAt={props.ActiveOrders.createdAt}
                             expiresAt={props.ActiveOrders.expiresAt}
                         />
-                        :
-                        ""
                     }
                 </div>
                 <IconsDiv>
