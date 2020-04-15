@@ -3,9 +3,7 @@ import Footer from "../../components/Footer"
 import CartRestaurant from "../CartRestaurant"
 import { connect } from 'react-redux'
 import { getRestaurants } from "../../actions"
-
 import { ContentHomeWrapper, TextFieldSearchStyled} from './styles'
-
 
 class FeedPage extends Component {
 
@@ -20,8 +18,8 @@ class FeedPage extends Component {
         console.log(this.props.restaurants)
         const { restaurants } = this.props
         return (
-            <>
-
+            <>              
+                <HistoryDivider head={"IFuture"}/>
 
                 <ContentHomeWrapper>
 

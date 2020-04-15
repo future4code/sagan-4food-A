@@ -12,17 +12,15 @@ function SplashScreen(props) {
         const token = localStorage.getItem('token')
         if(token === null){
             props.goLogin()
-            console.log('trest')
         } else {
             props.goHome()
-            console.log('trfsdfsfdfdsest')
         }
     }
     return (
         <div>
             <Fade in={true} timeout={2000}>
                 <WrapperRed onClick={handleWhithClick}>
-                        <LoginImg src={logoimg} class="Logo FourFoodA" />
+                    <LoginImg src={logoimg} class="Logo FourFoodA" />
                 </WrapperRed>
             </Fade>
         </div>
@@ -33,7 +31,7 @@ const mapStateToProps = state => ({});
 
 const mapDispatchToProps = (dispatch) => ({
     goLogin: () => dispatch(push(routes.login)),
-    goHome: () => dispatch(push(routes.home))
+    goHome: () => dispatch(push(routes.feed))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SplashScreen)

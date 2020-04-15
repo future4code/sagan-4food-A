@@ -7,6 +7,7 @@ import HistoryDivider from '../HistoryDivider/HistoryDivider';
 import EditIcon from '@material-ui/icons/Edit';
 import {doOrdersHistory} from '../../actions/login'
 import CardHistory from '../../components/CardHistory/CardHistory'
+import Footer from '../../components/Footer/index'
 
 function MyProfile(props) {
     useEffect(() => {
@@ -49,6 +50,7 @@ const userData = JSON.parse(localStorage.getItem('user'))
         ))}
 
             </LoginWrapper>
+            <Footer />
         </LoginWrapper>
     );
 }
