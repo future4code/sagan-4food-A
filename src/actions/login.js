@@ -99,8 +99,8 @@ export const getActiveOrders = () => (dispatch) => {
     }).then(response => {
         dispatch(setActiveOrders(response.data.order))
     }).catch(error => {
-        console.log(error.response.data.message)
-        dispatch(setErrorMsg(error.response.data.message))
+        console.log(error.response)
+        dispatch(setErrorMsg(error.response))
     })
 }
 

@@ -20,7 +20,7 @@ return (
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
                 <div>
-                    <StyledTextHD variant='subtitle1' >SUBTOTAL <strong>R${props.totalPrice.toLocaleString("pt-BR", {minimumFractionDigits: 2})}</strong></StyledTextHD>
+                    <StyledTextHD variant='subtitle1' >SUBTOTAL <strong>R${props.totalPrice ? (props.totalPrice.toLocaleString("pt-BR", {minimumFractionDigits: 2})) : ""}</strong></StyledTextHD>
                 </div>
                 <div>
                     <StyledTextHD variant='subtitle1' >Pedido realizado em: <strong>{moment(props.createdAt).format('LT')}</strong></StyledTextHD>
