@@ -141,6 +141,7 @@ export const RestCard = styled.div`
 `;
 export const StyledCardMedia = styled(CardMedia)`
   border-radius: 5px 5px 0 0;
+  height: 120px;
 `;
 export const DivRight = styled.div`
   width: 100%;
