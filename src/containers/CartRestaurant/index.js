@@ -20,10 +20,10 @@ class CartRestaurant extends Component {
                     {/* inserir detalhe do restaurante com endereço. ^^ */}
                     <CardMediaStyled component="img" src={this.props.image} />
                     <CardContent>
-                        <RestaurantName variant="h5" component="h2">{this.props.name}</RestaurantName>
+                        <RestaurantName variant="subtitle1">{this.props.name}</RestaurantName>
                         <InfosRestaurantWrapper>
-                            <DeliveryTimeStyled variant="h6" component="h2">{this.props.deliveryTime} min </DeliveryTimeStyled>
-                            <ShippingStyled variant="h6" component="h2">Frete R${this.props.shipping} </ShippingStyled>
+                            <DeliveryTimeStyled variant="subtitle2">{this.props.deliveryTime} min </DeliveryTimeStyled>
+                            <ShippingStyled variant="subtitle2">Frete R${this.props.shipping.toLocaleString("pt-BR", {minimumFractionDigits: 2,})} </ShippingStyled>
                         </InfosRestaurantWrapper>
                     </CardContent>
                 </CardActionWrapper>

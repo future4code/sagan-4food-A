@@ -19,8 +19,9 @@ export const CardActionWrapper = styled(CardActionArea)`
 `
 
 export const CardMediaStyled = styled(CardMedia)`
-  width: 328px;
+  width: 100%;
   height: 120px;
+  border-radius: 5px 5px 0px 0px;
   
 `
 export const InfosRestaurantWrapper = styled.div`
@@ -38,8 +39,8 @@ export const RestaurantName = styled(Typography)`
 export const DeliveryTimeStyled = styled(Typography)`
   width: 148px;
   height: 18px;
-  font-size: 16px;
-  letter-spacing: -0.4px;
+  /* font-size: 16px;
+  letter-spacing: -0.4px; */
   text-align: left;
   color: #b8b8b8;
 `
@@ -47,8 +48,8 @@ export const DeliveryTimeStyled = styled(Typography)`
 export const ShippingStyled = styled(Typography)`
   width: 140px;
   height: 18px;
-  font-size: 16px;
-  letter-spacing: -0.4px;
+  /* font-size: 16px;
+  letter-spacing: -0.4px; */
   text-align: right;
   color: #b8b8b8;
 `
