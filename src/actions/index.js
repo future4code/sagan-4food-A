@@ -24,3 +24,18 @@ export const getRestaurantsToReducer = (restaurants) => ({
     payload : 
         restaurants,
 })
+
+export const setFilteredRestaurants = (restaurants) => ({
+    type:'SET_FILTERED_RESTAURANTS',
+    payload: {
+        restaurants,
+    }
+})
+
+export const setInputSearch = (inputData) => ({
+    type: 'SET_INPUT_SEARCH',
+    payload: {
+        inputData
+    }
+})
+
