@@ -8,8 +8,6 @@ import backImg from '../../img/back.svg'
 import {HDWrapper, StyledTextHD, HDWrapperCont, HDWrapperCenter} from '../../style/styled'
 import Divider from '@material-ui/core/Divider';
 
-
-
 function HistoryDivider(props) {
     return (
         <HDWrapper>
@@ -30,13 +28,6 @@ const mapDispatchToProps = (dispatch) => ({
     doLogin: (inputUser, inputPass) => dispatch(doLogin(inputUser, inputPass)),
     doSignUp: () => dispatch(push(routes.signUp)),
     goBack: () => dispatch(goBack())
-
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HistoryDivider)
-
-
-{/* <HDWrapper>
-<div><img src={backImg} /></div>
-<HDTextWrapper><StyledTextHD variant='subtitle2'>{props.head}</StyledTextHD></HDTextWrapper>
-</HDWrapper> */}

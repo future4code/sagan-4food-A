@@ -5,6 +5,13 @@ import Button from '@material-ui/core/Button';
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import Radio from '@material-ui/core/Radio';
+
+//Radio
+export const StyledRadio = styled(Radio)`
+padding: 5px;
+margin: 0;
+`
 
 //Styled Material-ui
 export const StyledAccessTimeIcon = styled(AccessTimeIcon)`
@@ -76,6 +83,11 @@ padding: 5px;
 export const HDWrapper = styled.div`
 width: 100vw;
 `
+export const AddressWraper = styled.div`
+width: 100vw;
+background-color: lightgray;
+padding: 10px;
+`
 export const HDWrapperCenter = styled.div`
 align-self: center;
 text-align: center;
@@ -129,4 +141,44 @@ width: 90%;
 `
 export const StyledDivBG = styled.div`
 border-radius: 5px 5px 0 0 ;
+`
+export const DivRight = styled.div`
+width: 100%;
+display: flex;
+justify-content: flex-end;
+padding: 10px;
+`
+export const DivLeft = styled.div`
+width: 100%;
+display: flex;
+justify-content: flex-start;
+flex-direction: column;
+padding: 10px;
+`
+export const DivSpaceBet = styled.div`
+width: 100%;
+display: flex;
+justify-content: space-between;
+padding: 10px;
+`
+export const DivRadios = styled.div`
+display: flex;
+justify-content: flex-start;
+align-content: center;
+align-items: center;
+`
+export const DivEmptyCart = styled.div`
+display: flex;
+justify-content: center;
+align-content: center;
+align-items: center;
+min-height: 10vh;
+`
+export const DivCartRestData = styled.div`
+display: flex;
+flex-direction: column;
+align-content: center;
+align-items: left;
+width: 100%;
+padding: 10px;
 `

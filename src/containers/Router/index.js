@@ -8,9 +8,8 @@ import NewAddress from '../../containers/NewAddress/NewAddress'
 import SplashScreen from '../SplashScreen/SplashScreen'
 import UserEdit from "../UserEdit/UserEdit";
 import MyProfile from "../MyProfile/MyProfile";
-import CardRestaurante from "../../components/CardRestaurante/CardRestaurante";
-import PedidosAbertos from '../../components/PedidosAbertos/PedidosAbertos'
 import FeedPage from '../FeedPage'
+import Cart from "../Cart/Cart";
 
 export const routes = {
   feed: "/home",
@@ -21,7 +20,7 @@ export const routes = {
   root: "/",
   useredit: "/useredit",
   myprofile: "/myprofile",
-  pedidosabertos: "/pedidosabertos",
+  cart: "/cart",
 };
 
 function Router(props) {
@@ -36,7 +35,7 @@ function Router(props) {
         <Route exact path={routes.signUp} component={SignUp} />
         <Route exact path={routes.useredit} component={UserEdit} />
         <Route exact path={routes.myprofile} component={MyProfile} />
-        <Route exact path={routes.pedidosabertos} component={CardRestaurante} />
+        <Route exact path={routes.cart} component={Cart} />
       </Switch>
     </ConnectedRouter>
   );
