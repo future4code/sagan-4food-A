@@ -11,7 +11,6 @@ const SaveProdutsInState = (state = initialState, action) => {
     case "REMOVE_PRODUCTS":
       return (
         (indexArray = newState.findIndex((food) => food.id === action.payload)),
-        console.log(action.payload),
         newState.splice(indexArray, 1),
         (state = newState)
       );
