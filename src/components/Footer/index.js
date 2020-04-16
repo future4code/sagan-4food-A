@@ -31,7 +31,7 @@ function Footer(props) {
                 </IconsWrapper>
 
                 <IconsWrapper 
-                // onClick={goToShoppingCart}
+                onClick={props.goToCart}
                 >
                 <img src={require("./Images/shopping-cart.png")} type="icon" alt="ícone clicável carrinho de pedidos"></img>
                 </IconsWrapper>
@@ -53,6 +53,7 @@ const mapDispatchToProps = (dispatch) => ({
     // goToShoppingCart: () => dispatch (push(routes.shoppingCart)),
     goToUserProfile: () => dispatch (push(routes.myprofile)),
     goToHome: () => dispatch (push(routes.feed)),
+    goToCart: () => dispatch (push(routes.cart)),
     getActiveOrders: () => dispatch(getActiveOrders())
 })
 
