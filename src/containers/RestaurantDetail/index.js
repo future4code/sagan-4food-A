@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import CardMenu from "../../components/CardMenu";
+import CardMenu from "../../components/CardMenu/CardMenu";
 import { connect } from "react-redux";
 import { getRestaurantDetail } from "../../actions/RestaurantDetail";
 import styled from "styled-components";
@@ -47,6 +47,7 @@ const RestaurantDetail = (props) => {
                     description={food.description}
                     img={food.photoUrl}
                     price={food.price}
+                    id={food.id}
                   />
                 ))}
             </div>

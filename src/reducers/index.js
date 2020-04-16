@@ -2,9 +2,10 @@ import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
 import restaurants from "./restaurants";
 import SaveDetailInState from "./RestaurantDetailReducer";
-import Error from './error'
-import orderHistory from './orderHistory'
-import activeorders from './activeorders'
+import Error from "./error";
+import orderHistory from "./orderHistory";
+import activeorders from "./activeorders";
+import saveAndRemoveProducts from "./saveAndRemoveProducts";
 
 export const generateReducers = (history) =>
   combineReducers({
@@ -13,5 +14,6 @@ export const generateReducers = (history) =>
     SaveDetailInState,
     Error,
     orderHistory,
-    activeorders
+    activeorders,
+    saveAndRemoveProducts,
   });
