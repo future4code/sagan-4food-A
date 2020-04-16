@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
 import {doNewAddress} from '../../actions/login'
-import {LoginWrapper, StyledTextHD, StyledText, StyledTextField, StyledButton} from '../../style/styled'
+import {DefaultWrapper, StyledTextHD, StyledText, StyledTextField, StyledButton} from '../../style/styled'
 import HistoryDivider from '../../containers/HistoryDivider/HistoryDivider'
 
 
@@ -27,8 +27,8 @@ const handleWhithSubmit = async (event) => {
 }
 
     return (
-        <LoginWrapper>
-            <HistoryDivider/>
+        <DefaultWrapper>
+                <HistoryDivider showGoBack={true}/>
             <StyledText variant='subtitle1'>Meu endereço</StyledText>
             <StyledTextField InputLabelProps={{ shrink: true }} variant="outlined" label='Logradouro' placeholder='Rua / Av.' type='text' required onChange={(event) => {setInputRua(event.target.value)}} value={inputRua}></StyledTextField>
             <StyledTextField InputLabelProps={{ shrink: true }} variant="outlined" label='Número' placeholder='Número' type='text' required onChange={(event) => {setInputNum(event.target.value)}} value={inputNum}></StyledTextField>
@@ -39,7 +39,7 @@ const handleWhithSubmit = async (event) => {
             <StyledButton variant='contained' type='button' onClick={handleWhithSubmit}>
             <StyledTextHD>Salvar</StyledTextHD>
             </StyledButton>
-        </LoginWrapper>
+        </DefaultWrapper>
     );
 }
 

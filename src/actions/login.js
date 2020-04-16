@@ -90,6 +90,20 @@ export const doOrdersHistory = () => (dispatch) => {
     })
 }
 
+export const getActiveOrders = () => (dispatch) => {
+    const token = localStorage.getItem("token")
+    const getOrders = axios.get(`${BaseUrl}/active-order`, {
+        headers: {
+            auth: token
+        }
+    }).then(response => {
+        dispatch(setActiveOrders(response.data.order))
+    }).catch(error => {
+        console.log(error.response)
+        dispatch(setErrorMsg(error.response))
+    })
+}
+
 export const setErrorMsg = (data) => ({
     type: "SET_ERROR_MSG",
     payload: data,
@@ -97,5 +111,9 @@ export const setErrorMsg = (data) => ({
 
 export const setOrdersHistory = (data) => ({
     type: "SET_ORDER_HISTORY",
+    payload: data,
+});
+export const setActiveOrders = (data) => ({
+    type: "SET_ACTIVE_ORDERS",
     payload: data,
 });

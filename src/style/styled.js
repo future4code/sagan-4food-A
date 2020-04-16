@@ -4,29 +4,30 @@ import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import CardMedia from "@material-ui/core/CardMedia";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import Radio from '@material-ui/core/Radio';
 
+//Radio
+export const StyledRadio = styled(Radio)`
+padding: 5px;
+margin: 0;
+`
+
+//Styled Material-ui
 export const StyledAccessTimeIcon = styled(AccessTimeIcon)`
 color: white;
+margin-right: 10px;
 `
-export const LoginWrapper = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-align-items: center;
-`
-export const StyledForm = styled.form`
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-align-items: center;
-`
-
-export const LoginImg = styled.img`
-margin: 15px 128px 0px 128px;
+export const StyledExpansionPanel = styled(ExpansionPanel)`
+background-color: #e8222e;
 `
 export const StyledText = styled(Typography)`
 margin-top: 26px;
+`
+export const StyledTextHD = styled(Typography)`
+`
+export const StyledTextWhite = styled(Typography)`
+color: white;
 `
 export const StyledTextField = styled(TextField)`
 width: 328px;
@@ -45,19 +46,47 @@ font-family: 'Roboto';
 margin-top: 16px;
 margin-bottom: 8px;
 `
-export const StyledTextHD = styled(Typography)`
+export const StyledOutlinedInput = styled(OutlinedInput)`
+width: 328px;
+height: 56px;
+border-radius: 1px;
+margin-top: 8px;
+margin-bottom: 8px;
 `
-export const StyledTextRed = styled(Typography)`
-color: red;
+// Styled comum
+
+// forms
+export const StyledForm = styled.form`
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
 `
-export const HDWrapper = styled.div`
-width: 100vw;
+// imgs
+export const LoginImg = styled.img`
+margin: 15px 128px 0px 128px;
+`
+
+// div
+export const DefaultWrapper = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
 `
 export const HDWrapperCont = styled.div`
 display: flex;
 align-items: center;
 justify-content: left;
 padding: 5px;
+`
+export const HDWrapper = styled.div`
+width: 100vw;
+`
+export const AddressWraper = styled.div`
+width: 100vw;
+background-color: lightgray;
+padding: 10px;
 `
 export const HDWrapperCenter = styled.div`
 align-self: center;
@@ -79,13 +108,6 @@ justify-content: left;
 min-height: 20vh;
 width: 100vw;
 z-index: -1;
-`
-export const StyledOutlinedInput = styled(OutlinedInput)`
-width: 328px;
-height: 56px;
-border-radius: 1px;
-margin-top: 8px;
-margin-bottom: 8px;
 `
 export const MPdiv = styled.div`
 display: flex;
@@ -109,9 +131,6 @@ flex-direction: column;
 padding-left: 30px;
 width: 100%;
 `
-export const StyledTextWhite = styled(Typography)`
-color: white;
-`
 export const RestCardSpace = styled.div`
 display: flex;
 justify-content: space-between;
@@ -122,4 +141,44 @@ width: 90%;
 `
 export const StyledDivBG = styled.div`
 border-radius: 5px 5px 0 0 ;
+`
+export const DivRight = styled.div`
+width: 100%;
+display: flex;
+justify-content: flex-end;
+padding: 10px;
+`
+export const DivLeft = styled.div`
+width: 100%;
+display: flex;
+justify-content: flex-start;
+flex-direction: column;
+padding: 10px;
+`
+export const DivSpaceBet = styled.div`
+width: 100%;
+display: flex;
+justify-content: space-between;
+padding: 10px;
+`
+export const DivRadios = styled.div`
+display: flex;
+justify-content: flex-start;
+align-content: center;
+align-items: center;
+`
+export const DivEmptyCart = styled.div`
+display: flex;
+justify-content: center;
+align-content: center;
+align-items: center;
+min-height: 10vh;
+`
+export const DivCartRestData = styled.div`
+display: flex;
+flex-direction: column;
+align-content: center;
+align-items: left;
+width: 100%;
+padding: 10px;
 `

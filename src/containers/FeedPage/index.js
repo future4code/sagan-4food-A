@@ -6,19 +6,15 @@ import HistoryDivider from "../HistoryDivider/HistoryDivider"
 
 
 import { connect } from 'react-redux'
-import { getRestaurants, setInputSearch } from "../../actions"
 
-import { ContentHomeWrapper } from './styles'
-
+import { getRestaurants } from "../../actions"
+import { ContentHomeWrapper, TextFieldSearchStyled} from './styles'
+import HistoryDivider from '../HistoryDivider/HistoryDivider'
 
 class FeedPage extends Component {
-
-
     componentDidMount() {
         this.props.getRestaurants()
     }
-
-    
 
     render() {
         // console.log(this.props.restaurants.name)
@@ -73,6 +69,7 @@ class FeedPage extends Component {
 
 
         return (
+
             <>
                 <HistoryDivider head={"IFuture"} />
 
@@ -84,11 +81,10 @@ class FeedPage extends Component {
 
                     {this.props.inputSearch === "" ? allRestaurants : allRestaurantsFilter}
 
+
                 </ContentHomeWrapper>
 
                 <Footer />
-
-
             </>
         )
     }

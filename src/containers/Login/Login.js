@@ -4,7 +4,7 @@ import {doLogin} from '../../actions/login'
 import {routes} from "../Router/index";
 import {push} from "connected-react-router";
 import logoimg from '../../img/logo-future-eats-invert.svg'
-import {StyledForm, StyledOutlinedInput, LoginWrapper, LoginImg, StyledText, StyledTextField, StyledButton, StyledTextHD} from '../../style/styled'
+import {StyledForm, StyledOutlinedInput, DefaultWrapper, LoginImg, StyledText, StyledTextField, StyledButton, StyledTextHD} from '../../style/styled'
 import IconButton from "@material-ui/core/IconButton";
 import InputLabel from "@material-ui/core/InputLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -39,7 +39,7 @@ const handleWhithSubmit = async (event) => {
 }
 
     return (
-        <LoginWrapper>
+        <DefaultWrapper>
             <LoginImg src={logoimg} class="Logo FourFoodA" />
             <StyledText variant='subtitle1'>Entrar</StyledText>
             <StyledForm onSubmit={handleWhithSubmit}>
@@ -74,7 +74,7 @@ const handleWhithSubmit = async (event) => {
                 </StyledButton>
             </StyledForm>
             <StyledText variant='subtitle1' onClick={props.doSignUp}>Não possui cadastro? Clique aqui.</StyledText>
-        </LoginWrapper>
+        </DefaultWrapper>
     );
 }
 

@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import CardMenu from "../../components/CardMenu";
+import CardMenu from "../../components/CardMenu/CardMenu";
 import { connect } from "react-redux";
 import { getRestaurantDetail } from "../../actions/RestaurantDetail";
 import styled from "styled-components";
-
+import Footer from "../../components/Footer/index";
+import CardRestaurante from "../../components/CardRestaurante/CardRestaurante";
 const Box = styled.div`
   width: 328px;
   height: 18px;
@@ -14,10 +15,6 @@ const Box = styled.div`
 `;
 
 const RestaurantDetail = (props) => {
-  useEffect(() => {
-    props.getRestaurantDetail(10);
-  }, []);
-  console.log(props.dataRestaurant.products);
   const products = props.dataRestaurant.products;
   const categoryRestaurantDuplicate =
     products &&
@@ -31,8 +28,22 @@ const RestaurantDetail = (props) => {
       return categoryRestaurantDuplicate.indexOf(category) === index;
     });
 
+  const restaurant = props.dataRestaurant;
+  console.log(restaurant && restaurant.logoUrl);
   return (
     <div>
+      {restaurant && (
+        <CardRestaurante
+          logoUrl={restaurant.logoUrl}
+          name={restaurant.name}
+          deliveryTime={restaurant.deliveryTime}
+          shipping={restaurant.shipping}
+          category={restaurant.category}
+          address={restaurant.address}
+        />
+      )}
+
+      {console.log(props.dataRestaurant)}
       {categoryRestaurantNoDuplicate &&
         categoryRestaurantNoDuplicate.map((item) => {
           return (
@@ -47,11 +58,13 @@ const RestaurantDetail = (props) => {
                     description={food.description}
                     img={food.photoUrl}
                     price={food.price}
+                    id={food.id}
                   />
                 ))}
             </div>
           );
         })}
+      <Footer />
     </div>
   );
 };
