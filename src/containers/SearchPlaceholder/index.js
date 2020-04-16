@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setFilteredRestaurants, setInputSearch, getRestaurants } from '../../actions/index'
-import { InputSearchStyled } from './styles'
+import { InputSearchStyled, InputWrapper } from './styles'
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -13,7 +13,7 @@ class SearchPlaceholder extends Component {
     
     render() {
         return (
-            <form autoComplete="on">
+            <InputWrapper autoComplete="on">
                 <InputSearchStyled
                     value={this.props.inputSearch}
                     placeholder="Restaurante"
@@ -26,7 +26,7 @@ class SearchPlaceholder extends Component {
                         </InputAdornment>
                     }
                 />
-            </form>
+            </InputWrapper>
         )
     }
 }

@@ -18,16 +18,22 @@ export const TextFieldSearchStyled = styled(TextField)`
 `;
 
 export const CategoryMenuWrapper = styled.div`
-  width: 360px;
+  width: 100%;
   height: 42px;
+  display: flex;
+  overflow-x: scroll;
+  align-items: center;
+  text-align: center;
 `
 
-export const CategoryMenuStyled = styled(Button) `
-  width: 87px;
+export const CategoryMenuStyled = styled.span `
+  width: 100%;
   height: 18px;
+  margin: 0 1vw;
+  font-family: 'Roboto';
   font-size: 16px;
   letter-spacing: -0.4px;
-  text-align: center;
+  /* text-align: center; */
   color: #e8222e;
-
+ 
 `

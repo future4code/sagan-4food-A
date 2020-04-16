@@ -21,8 +21,8 @@ class FeedPage extends Component {
       console.log("oi");
     };
 
-    const handleInputHamburguer = () => {
-      this.props.setInputSearch("Hamburguer");
+    const handleSearchCategory = (category) => {
+      this.props.setInputSearch(category);
       console.log("oi");
     };
 
@@ -34,13 +34,24 @@ class FeedPage extends Component {
       restaurants.category.toLowerCase().includes(inputSearch.toLowerCase())
     );
 
-    
+    const categoryList = restaurants.map((restaurants) => { return (restaurants.category) })
+
+    const categoryRestaurantNoDuplicate = categoryList.filter((category, index) => {
+      return categoryList.indexOf(category) === index
+    })
+
+    console.log(categoryRestaurantNoDuplicate)
 
     let allRestaurants = (
       <>
         <CategoryMenuWrapper>
-          <CategoryMenuStyled onClick={handleInputHamburguer}>Burguer</CategoryMenuStyled>
+          {categoryRestaurantNoDuplicate.map((categoryItem) => {
+            return (
+              <CategoryMenuStyled onClick={() => handleSearchCategory(categoryItem)}>{categoryItem}</CategoryMenuStyled>
+            )
+          })}
         </CategoryMenuWrapper>
+
         {restaurants.map((restaurants) => {
           return (
             <CartRestaurant
