@@ -6,6 +6,7 @@ import Footer from "../../components/Footer/index";
 import CardRestaurante from "../../components/CardRestaurante/CardRestaurante";
 import { DivTitle, Hr } from "./styled";
 import HistoryDivider from "../HistoryDivider/HistoryDivider";
+import Loading from '../../components/Loading/index'
 
 const RestaurantDetail = (props) => {
   const products = props.dataRestaurant.products;
@@ -59,6 +60,7 @@ const RestaurantDetail = (props) => {
             </div>
           );
         })}
+        {props.dataRestaurant ? "" : <Loading open={true} />}
       <Footer />
     </div>
   );
