@@ -21,7 +21,13 @@ function CardMenu(props) {
         <TypographyDescription>{props.description}</TypographyDescription>
         <TypographyPrice>R${props.price}</TypographyPrice>
         <CardActions>
-          <SelectFoodToCart id={props.id} price={props.price} />
+          <SelectFoodToCart
+            id={props.id}
+            price={props.price}
+            title={props.title}
+            description={props.description}
+            img={props.img}
+          />
         </CardActions>
       </CardContentMenu>
     </CardStyled>
