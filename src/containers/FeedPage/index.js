@@ -3,13 +3,14 @@ import Footer from "../../components/Footer"
 import CartRestaurant from "../CartRestaurant"
 import SearchPlaceholder from "../SearchPlaceholder"
 import HistoryDivider from "../HistoryDivider/HistoryDivider"
+import {setInputSearch} from '../../actions/index'
+
 
 
 import { connect } from 'react-redux'
 
 import { getRestaurants } from "../../actions"
 import { ContentHomeWrapper, TextFieldSearchStyled} from './styles'
-import HistoryDivider from '../HistoryDivider/HistoryDivider'
 
 class FeedPage extends Component {
     componentDidMount() {

@@ -16,7 +16,7 @@ export const generateReducers = (history) =>
     SaveDetailInState,
     Error,
     orderHistory,
-    filterSearch
+    filterSearch,
     activeorders,
     saveAndRemoveProducts,
   });
