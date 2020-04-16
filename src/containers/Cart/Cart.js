@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
-import {doLogin} from '../../actions/login'
+import {doLogin, sendNewOrder} from '../../actions/login'
 import {routes} from "../Router/index";
 import {push} from "connected-react-router";
 import {DefaultWrapper, DivCartRestData, DivEmptyCart, DivRadios, DivRight, StyledRadio, DivSpaceBet, DivLeft, StyledTextHD, AddressWraper, StyledButton} from '../../style/styled';
@@ -11,20 +11,17 @@ import Divider from '@material-ui/core/Divider';
 function Cart(props) {
     const userData = JSON.parse(localStorage.getItem('user'))
 
-    let valorInicial = props.RestDetails.shipping;
     const somaCarrinho = props.ItensCarrinho.reduce(
         (acumulador , valorAtual) => acumulador + valorAtual.price
-        ,valorInicial 
+        , props.RestDetails.shipping 
+    );
+
+    const contaCarrinho = props.ItensCarrinho.reduce(
+        (acumulador , valorAtual) => acumulador + valorAtual.quantity
+        , 0 
     );
 
     const products = props.ItensCarrinho
-    let metodoAtivo = 'money'
-    const preparaEnvio = (
-        {
-            products,
-            paymentMethod: metodoAtivo
-        }
-    )
 
     const emptyCart = (
         <DivEmptyCart>
@@ -44,28 +41,45 @@ function Cart(props) {
     const [values, setValues] = useState({
         money: false,
         creditcard: false,
-        botao: true
+        metodoAtivo: "",
+        erroMsg: ""
     });
 
     const handleWhitRadio = (event) => {
         if(event.target.name === 'money') {
-            setValues({ ...values, money: true, creditcard: false, botao: false });
-            metodoAtivo = 'money'
+            setValues({ ...values, money: true, creditcard: false, metodoAtivo: 'money', erroMsg: "" });
         } else if(event.target.name === 'creditcard') {
-            setValues({ ...values, money: false, creditcard: true, botao: false });
-            metodoAtivo = 'creditcard'
+            setValues({ ...values, money: false, creditcard: true, metodoAtivo: 'creditcard', erroMsg: "" });
         }
+    }
+
+    const handleWhitNewOrder = () => {
+        const preparaEnvio = (
+            {
+                products,
+                paymentMethod: values.metodoAtivo
+            }
+        )
+        if(values.metodoAtivo !== '' && products) {
+            props.sendNewOrder(props.RestDetails.id, preparaEnvio)
+        } else {
+            setValues({ ...values, erroMsg: 'Não foi possivel enviar o pedido. Certifique-se que existem produtos no carrinho e um método de pagamento selecionado.' });
+            console.log('erro')
+            console.log(props.RestDetails.id, preparaEnvio)
+        }
+        
     }
     
     return (
         <DefaultWrapper>
             <HistoryDivider showGoBack={true} head={'Meu carrinho'}/>
-            <button onClick={() => {console.log(preparaEnvio)}}>log</button>
+            {/* <button onClick={() => {console.log(preparaEnvio)}}>log</button> */}
             <AddressWraper>
                 <StyledTextHD>Endereço cadastrado:</StyledTextHD>
                 <StyledTextHD><strong>{userData.address}</strong></StyledTextHD>
             </AddressWraper>
-            {1==2? emptyCart : cartItemsRender}
+            <StyledTextHD color={'error'} variant={'body1'} align={'center'}>{values.erroMsg}</StyledTextHD>
+            {contaCarrinho === 0 ? emptyCart : cartItemsRender}
             <DivRight>
                 <StyledTextHD>Frete: R${props.RestDetails.shipping && props.RestDetails.shipping.toLocaleString("pt-BR", {minimumFractionDigits: 2} )}</StyledTextHD>
             </DivRight>
@@ -86,7 +100,7 @@ function Cart(props) {
                 </DivRadios>
             </DivLeft>
             <StyledButton>
-                <StyledTextHD disabled={values.botao}>Confirmar</StyledTextHD>
+                <StyledTextHD onClick={handleWhitNewOrder}>Confirmar</StyledTextHD>
             </StyledButton>
             <Footer />
         </DefaultWrapper>
@@ -99,6 +113,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => ({
     doLogin: (inputUser, inputPass) => dispatch(doLogin(inputUser, inputPass)),
+    sendNewOrder: (idRest, arrayProd) => dispatch(sendNewOrder(idRest, arrayProd)),
     doSignUp: () => dispatch(push(routes.signUp))
 })
 
