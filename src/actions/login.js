@@ -104,7 +104,6 @@ export const getActiveOrders = () => (dispatch) => {
     })
 }
 
-
 export const sendNewOrder = (idRest, arrayProd) => (dispatch) => {
     const token = localStorage.getItem("token")
     const newOrder = axios.post(`${BaseUrl}/restaurants/${idRest}/order`, arrayProd, {
@@ -112,6 +111,8 @@ export const sendNewOrder = (idRest, arrayProd) => (dispatch) => {
             auth: token
         }
     }).then(response => {
+        dispatch(getActiveOrders())
+        dispatch(cleanCart())
     }).catch(error => {
         console.log(error.response)
     })
@@ -129,4 +130,9 @@ export const setOrdersHistory = (data) => ({
 export const setActiveOrders = (data) => ({
     type: "SET_ACTIVE_ORDERS",
     payload: data,
+});
+
+export const cleanCart = () => ({
+    type: "CLEAN_SAVE_PRODUCTS",
+    payload: []
 });

@@ -28,10 +28,7 @@ class FeedPage extends Component {
     const { restaurants, filteredRestaurants, inputSearch } = this.props;
 
     const newRestaurantsList = [...restaurants];
-    const filteredRestaurantsList = newRestaurantsList.filter(
-      (restaurants) =>
-        restaurants.name.toLowerCase().includes(inputSearch.toLowerCase()) ||
-        restaurants.category.toLowerCase().includes(inputSearch.toLowerCase())
+    const filteredRestaurantsList = newRestaurantsList.filter((restaurants) => restaurants.name.toLowerCase().includes(inputSearch.toLowerCase()) ||restaurants.category.toLowerCase().includes(inputSearch.toLowerCase())
     );
 
     let allRestaurants = (
@@ -44,6 +41,7 @@ class FeedPage extends Component {
               name={restaurants.name}
               deliveryTime={restaurants.deliveryTime}
               shipping={restaurants.shipping}
+              id={restaurants.id}
             />
           );
         })}
@@ -59,6 +57,7 @@ class FeedPage extends Component {
               name={restaurants.name}
               deliveryTime={restaurants.deliveryTime}
               shipping={restaurants.shipping}
+              id={restaurants.id}
             />
           );
         })}
@@ -72,23 +71,7 @@ class FeedPage extends Component {
 
         <ContentHomeWrapper>
           <SearchPlaceholder restaurants={this.props.restaurants} />
-
-          <form autoComplete="on">
-            <TextFieldSearchStyled label="Restaurante" variant="outlined" />
-          </form>
           {/* FALTA MENU COM SCROLL LATERAL */}
-          {restaurants.map((restaurants) => {
-            return (
-              <CartRestaurant
-                image={restaurants.logoUrl}
-                name={restaurants.name}
-                deliveryTime={restaurants.deliveryTime}
-                shipping={restaurants.shipping}
-                id={restaurants.id}
-              />
-            );
-          })}
-
           {this.props.inputSearch === ""
             ? allRestaurants
             : allRestaurantsFilter}
