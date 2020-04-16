@@ -33,20 +33,23 @@ class SelectFoodToCart extends React.Component {
   };
 
   handleAddProducts = (id) => {
-    console.log(id);
-    const newProducts = { quantity: this.state.amount, id, price: (this.state.amount * this.props.price) };
+    const newProducts = {
+      quantity: this.state.amount,
+      id,
+      price: this.state.amount * this.props.price,
+    };
     this.props.saveProducts(newProducts);
     this.handleClose();
   };
 
   handleRemoveItem = (id) => {
-    console.log(id);
+    this.props.removeProdutcs(id);
   };
 
   render() {
     const { products, id, price } = this.props;
-    console.log(id);
-    //console.log(products.find((food) => food.id === id));
+
+    console.log(products);
     return (
       <div>
         {products.find((food) => food.id === id) ? (
