@@ -21,7 +21,7 @@ function CardMenu(props) {
         <TypographyDescription>{props.description}</TypographyDescription>
         <TypographyPrice>R${props.price}</TypographyPrice>
         <CardActions>
-          <SelectFoodToCart id={props.id} />
+          <SelectFoodToCart id={props.id} price={props.price} />
         </CardActions>
       </CardContentMenu>
     </CardStyled>
