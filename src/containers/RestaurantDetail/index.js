@@ -7,6 +7,8 @@ import CardRestaurante from "../../components/CardRestaurante/CardRestaurante";
 import { DivTitle, Hr } from "./styled";
 import HistoryDivider from "../HistoryDivider/HistoryDivider";
 import Loading from '../../components/Loading/index'
+import {StyledTextHD} from '../../style/styled'
+import Divider from '@material-ui/core/Divider';
 
 const RestaurantDetail = (props) => {
   const products = props.dataRestaurant.products;
@@ -43,8 +45,8 @@ const RestaurantDetail = (props) => {
         categoryRestaurantNoDuplicate.map((item) => {
           return (
             <div>
-              <DivTitle key={item}>{item}</DivTitle>
-              <Hr />
+              <DivTitle key={item}><StyledTextHD>{item}</StyledTextHD></DivTitle>
+              <Divider />
               {products
                 .filter((elemento) => elemento.category === item)
                 .map((food) => (

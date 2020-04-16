@@ -1,24 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
 import { setFilteredRestaurants, setInputSearch, getRestaurants } from '../../actions/index'
-
 import { InputSearchStyled } from './styles'
-
+import InputAdornment from '@material-ui/core/InputAdornment';
+import SearchIcon from '@material-ui/icons/Search';
 
 class SearchPlaceholder extends Component {
-  
 
     onChangeInputSearch = (event) => {
         this.props.setInputSearch(event.target.value)
     }
     
     render() {
-
-        // console.log(this.props.restaurants)
-
         return (
-
             <form autoComplete="on">
                 <InputSearchStyled
                     value={this.props.inputSearch}
@@ -26,13 +20,15 @@ class SearchPlaceholder extends Component {
                     variant="outlined"
                     inputProps={{ 'aria-label': 'search' }}
                     onChange={this.onChangeInputSearch}
-                    onKeyDown={this.onPressEnter}
+                    startAdornment={
+                        <InputAdornment position="start">
+                        <SearchIcon color={'secondary'} />
+                        </InputAdornment>
+                    }
                 />
             </form>
-
         )
     }
-
 }
 
 const mapStateToProps = (state) => ({
