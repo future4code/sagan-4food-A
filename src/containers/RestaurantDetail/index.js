@@ -1,18 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import CardMenu from "../../components/CardMenu/CardMenu";
 import { connect } from "react-redux";
 import { getRestaurantDetail } from "../../actions/RestaurantDetail";
-import styled from "styled-components";
 import Footer from "../../components/Footer/index";
 import CardRestaurante from "../../components/CardRestaurante/CardRestaurante";
-const Box = styled.div`
-  width: 328px;
-  height: 18px;
-  font-family: Roboto;
-  font-size: 16px;
-  letter-spacing: -0.4px;
-  margin-left: 16px;
-`;
+import { DivTitle, Hr } from "./styled";
+import HistoryDivider from "../HistoryDivider/HistoryDivider";
 
 const RestaurantDetail = (props) => {
   const products = props.dataRestaurant.products;
@@ -32,6 +25,7 @@ const RestaurantDetail = (props) => {
   console.log(restaurant && restaurant.logoUrl);
   return (
     <div>
+      <HistoryDivider head={"Restaurante"} showGoBack={true} />
       {restaurant && (
         <CardRestaurante
           logoUrl={restaurant.logoUrl}
@@ -48,7 +42,8 @@ const RestaurantDetail = (props) => {
         categoryRestaurantNoDuplicate.map((item) => {
           return (
             <div>
-              <Box key={item}>{item}</Box>
+              <DivTitle key={item}>{item}</DivTitle>
+              <Hr />
               {products
                 .filter((elemento) => elemento.category === item)
                 .map((food) => (
