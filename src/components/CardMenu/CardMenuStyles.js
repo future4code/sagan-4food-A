@@ -16,7 +16,7 @@ export const CardStyled = styled(Card)`
   height: 112px;
   border-radius: 8px;
   border: solid 1px #b8b8b8;
-  margin: 5px 16px;
+  margin: 5px auto;
 `;
 export const TypographyWrapperTitle = styled(Typography)`
   width: 167px;
@@ -41,18 +41,32 @@ export const TypographyPrice = styled(Typography)`
   letter-spacing: -0.4px;
 `;
 
-export const ButtonAddAndRemove = styled(Button)`
+export const ButtonAdd = styled(Button)`
   position: absolute;
-  right: 2px;
+  right: 0.5vw;
   bottom: 0%;
   width: 90px;
   height: 31px;
-  border-radius: 8px;
+  border-radius: 8px 0 8px 0;
   border: solid 1px #000000;
   padding: 0;
   font-family: Roboto;
   font-size: 12px;
   letter-spacing: -0.3px;
+`;
+export const ButtonRemove = styled(Button)`
+  position: absolute;
+  right: 0.5vw;
+  bottom: 0%;
+  width: 90px;
+  height: 31px;
+  border-radius: 8px 0 8px 0;
+  border: solid 1px #e02020;
+  padding: 0;
+  font-family: Roboto;
+  font-size: 12px;
+  letter-spacing: -0.3px;
+  color: #e02020;
 `;
 
 export const CardContentMenu = styled(CardContent)`

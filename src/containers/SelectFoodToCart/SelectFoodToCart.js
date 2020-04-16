@@ -7,7 +7,10 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import { ButtonAddAndRemove } from "../../components/CardMenu/CardMenuStyles";
+import {
+  ButtonRemove,
+  ButtonAdd,
+} from "../../components/CardMenu/CardMenuStyles";
 import { connect } from "react-redux";
 import {
   saveProducts,
@@ -53,16 +56,13 @@ class SelectFoodToCart extends React.Component {
     return (
       <div>
         {products.find((food) => food.id === id) ? (
-          <ButtonAddAndRemove
-            color="secondary"
-            onClick={() => this.handleRemoveItem(id)}
-          >
+          <ButtonRemove onClick={() => this.handleRemoveItem(id)}>
             Remover
-          </ButtonAddAndRemove>
+          </ButtonRemove>
         ) : (
-          <ButtonAddAndRemove onClick={() => this.handleClickOpen(id)}>
+          <ButtonAdd onClick={() => this.handleClickOpen(id)}>
             Adiconar
-          </ButtonAddAndRemove>
+          </ButtonAdd>
         )}
 
         <Dialog open={this.state.open} onClose={this.handleClose}>
