@@ -5,7 +5,7 @@ import SearchPlaceholder from "../SearchPlaceholder";
 import HistoryDivider from "../HistoryDivider/HistoryDivider";
 import { connect } from "react-redux";
 import { getRestaurants, setInputSearch } from "../../actions";
-import { ContentHomeWrapper, TextFieldSearchStyled } from "./styles";
+import { ContentHomeWrapper, TextFieldSearchStyled, CategoryMenuStyled, CategoryMenuWrapper } from "./styles";
 
 class FeedPage extends Component {
   componentDidMount() {
@@ -28,12 +28,18 @@ class FeedPage extends Component {
     const { restaurants, filteredRestaurants, inputSearch } = this.props;
 
     const newRestaurantsList = [...restaurants];
-    const filteredRestaurantsList = newRestaurantsList.filter((restaurants) => restaurants.name.toLowerCase().includes(inputSearch.toLowerCase()) ||restaurants.category.toLowerCase().includes(inputSearch.toLowerCase())
+    const filteredRestaurantsList = newRestaurantsList.filter((restaurants) => restaurants.name.toLowerCase().includes(inputSearch.toLowerCase())
+      ||
+      restaurants.category.toLowerCase().includes(inputSearch.toLowerCase())
     );
+
+    
 
     let allRestaurants = (
       <>
-        <button onClick={handleInputHamburguer}>Hamburguer</button>
+        <CategoryMenuWrapper>
+          <CategoryMenuStyled onClick={handleInputHamburguer}>Burguer</CategoryMenuStyled>
+        </CategoryMenuWrapper>
         {restaurants.map((restaurants) => {
           return (
             <CartRestaurant
