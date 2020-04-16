@@ -6,6 +6,7 @@ import HistoryDivider from "../HistoryDivider/HistoryDivider";
 import { connect } from "react-redux";
 import { getRestaurants, setInputSearch } from "../../actions";
 import { ContentHomeWrapper, TextFieldSearchStyled, CategoryMenuStyled, CategoryMenuWrapper } from "./styles";
+import Loading from '../../components/Loading/index'
 
 class FeedPage extends Component {
   componentDidMount() {
@@ -93,7 +94,7 @@ class FeedPage extends Component {
             ? allRestaurants
             : allRestaurantsFilter}
         </ContentHomeWrapper>
-
+        {this.props.restaurants[0] ? "" : <Loading open={true} />}
         <Footer />
       </>
     );

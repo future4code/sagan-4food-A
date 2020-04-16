@@ -12,4 +12,6 @@ width: 328px;
 height: 56px;
 border-radius: 2px;
 border: solid 1px #b8b8b8;
+margin-top: 10px;
+padding-left: 15px;
 `

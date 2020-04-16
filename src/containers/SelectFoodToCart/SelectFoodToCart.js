@@ -16,6 +16,8 @@ import {
   saveProducts,
   removeProdutcs,
 } from "../../actions/addAndRemoveProducts";
+import {StyledTextHD} from '../../style/styled'
+
 
 class SelectFoodToCart extends React.Component {
   state = {
@@ -35,11 +37,14 @@ class SelectFoodToCart extends React.Component {
     this.setState({ open: false });
   };
 
-  handleAddProducts = (id) => {
+  handleAddProducts = (id, price, title, description, img) => {
     const newProducts = {
       quantity: this.state.amount,
       id,
       price: this.state.amount * this.props.price,
+      title,
+      description,
+      img,
     };
     this.props.saveProducts(newProducts);
     this.handleClose();
@@ -50,19 +55,17 @@ class SelectFoodToCart extends React.Component {
   };
 
   render() {
-    const { products, id, price } = this.props;
-
-    console.log(products);
+    const { products, id, price, title, description, img } = this.props;
     return (
       <div>
         {products.find((food) => food.id === id) ? (
           <ButtonRemove onClick={() => this.handleRemoveItem(id)}>
-            Remover
+            <StyledTextHD color={'primary'} variant={'caption'}>Remover</StyledTextHD>
           </ButtonRemove>
         ) : (
-          <ButtonAdd onClick={() => this.handleClickOpen(id)}>
-            Adiconar
-          </ButtonAdd>
+          <ButtonAdd onClick={() => this.handleClickOpen()}>
+            <StyledTextHD variant={'caption'}>Adicionar</StyledTextHD>
+            </ButtonAdd>
         )}
 
         <Dialog open={this.state.open} onClose={this.handleClose}>
@@ -95,7 +98,12 @@ class SelectFoodToCart extends React.Component {
             <Button onClick={this.handleClose} color="primary">
               Cancelar
             </Button>
-            <Button onClick={() => this.handleAddProducts(id)} color="primary">
+            <Button
+              onClick={() =>
+                this.handleAddProducts(id, price, title, description, img)
+              }
+              color="primary"
+            >
               Ok
             </Button>
           </DialogActions>
