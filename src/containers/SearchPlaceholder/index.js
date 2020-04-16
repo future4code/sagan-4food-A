@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { setFilteredRestaurants, setInputSearch, getRestaurants } from '../../actions/index'
 
-import { InputSearchStyled } from './styles'
+import { InputSearchStyled, InputWrapper } from './styles'
 
 
 class SearchPlaceholder extends Component {
@@ -19,7 +19,7 @@ class SearchPlaceholder extends Component {
 
         return (
 
-            <form autoComplete="on">
+            <InputWrapper autoComplete="on">
                 <InputSearchStyled
                     value={this.props.inputSearch}
                     placeholder="Restaurante"
@@ -28,7 +28,7 @@ class SearchPlaceholder extends Component {
                     onChange={this.onChangeInputSearch}
                     onKeyDown={this.onPressEnter}
                 />
-            </form>
+            </InputWrapper>
 
         )
     }

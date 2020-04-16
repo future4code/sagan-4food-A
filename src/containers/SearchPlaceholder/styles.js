@@ -1,6 +1,12 @@
 import styled from "styled-components"
 import { InputBase } from '@material-ui/core'
 
+
+
+export const InputWrapper = styled.form `
+ padding-top: 2vh;
+`
+
 export const InputSearchStyled = styled(InputBase) `
 width: 328px;
 height: 56px;
