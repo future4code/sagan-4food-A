@@ -5,10 +5,10 @@ import {
   TypographyWrapperTitle,
   TypographyDescription,
   TypographyPrice,
-  ButtonAddAndRemove,
   CardContentMenu,
 } from "./CardMenuStyles";
 import { CardActions } from "@material-ui/core";
+import SelectFoodToCart from "../../containers/SelectFoodToCart/SelectFoodToCart";
 
 function CardMenu(props) {
   return (
@@ -21,7 +21,7 @@ function CardMenu(props) {
         <TypographyDescription>{props.description}</TypographyDescription>
         <TypographyPrice>R${props.price}</TypographyPrice>
         <CardActions>
-          <ButtonAddAndRemove>Adicionar</ButtonAddAndRemove>
+          <SelectFoodToCart id={props.id} />
         </CardActions>
       </CardContentMenu>
     </CardStyled>
