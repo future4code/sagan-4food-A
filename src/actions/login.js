@@ -104,6 +104,19 @@ export const getActiveOrders = () => (dispatch) => {
     })
 }
 
+
+export const sendNewOrder = (idRest, arrayProd) => (dispatch) => {
+    const token = localStorage.getItem("token")
+    const newOrder = axios.post(`${BaseUrl}/restaurants/${idRest}/order`, arrayProd, {
+        headers: {
+            auth: token
+        }
+    }).then(response => {
+    }).catch(error => {
+        console.log(error.response)
+    })
+}
+
 export const setErrorMsg = (data) => ({
     type: "SET_ERROR_MSG",
     payload: data,
