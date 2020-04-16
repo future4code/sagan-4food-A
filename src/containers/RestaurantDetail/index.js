@@ -3,6 +3,7 @@ import CardMenu from "../../components/CardMenu/CardMenu";
 import { connect } from "react-redux";
 import { getRestaurantDetail } from "../../actions/RestaurantDetail";
 import styled from "styled-components";
+import Footer from '../../components/Footer/index'
 
 const Box = styled.div`
   width: 328px;
@@ -14,10 +15,6 @@ const Box = styled.div`
 `;
 
 const RestaurantDetail = (props) => {
-  useEffect(() => {
-    props.getRestaurantDetail(10);
-  }, []);
-  console.log(props.dataRestaurant.products);
   const products = props.dataRestaurant.products;
   const categoryRestaurantDuplicate =
     products &&
@@ -53,6 +50,7 @@ const RestaurantDetail = (props) => {
             </div>
           );
         })}
+        <Footer />
     </div>
   );
 };

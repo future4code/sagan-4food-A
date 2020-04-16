@@ -11,6 +11,21 @@ import Divider from '@material-ui/core/Divider';
 function Cart(props) {
     const userData = JSON.parse(localStorage.getItem('user'))
 
+    let valorInicial = props.RestDetails.shipping;
+    const somaCarrinho = props.ItensCarrinho.reduce(
+        (acumulador , valorAtual) => acumulador + valorAtual.price
+        ,valorInicial 
+    );
+
+    const products = props.ItensCarrinho
+    let metodoAtivo = 'money'
+    const preparaEnvio = (
+        {
+            products,
+            paymentMethod: metodoAtivo
+        }
+    )
+
     const emptyCart = (
         <DivEmptyCart>
             <StyledTextHD>Carrinho vazio</StyledTextHD>
@@ -19,9 +34,9 @@ function Cart(props) {
     const cartItemsRender = (
         <>
             <DivCartRestData>
-                <StyledTextHD color='primary'>Nome restaurante</StyledTextHD>
-                <StyledTextHD>Endereço do restaurante</StyledTextHD>
-                <StyledTextHD>Entrega em aprox. 00min.</StyledTextHD>
+                <StyledTextHD color='primary'>{props.RestDetails.name}</StyledTextHD>
+                <StyledTextHD>{props.RestDetails.address}</StyledTextHD>
+                <StyledTextHD>Entrega em aprox. {props.RestDetails.deliveryTime}min.</StyledTextHD>
             </DivCartRestData>
             <div>renderizacao dos itens</div>
         </>
@@ -29,31 +44,34 @@ function Cart(props) {
     const [values, setValues] = useState({
         money: false,
         creditcard: false,
-        ativo: ''
+        botao: true
     });
 
     const handleWhitRadio = (event) => {
         if(event.target.name === 'money') {
-            setValues({ ...values, money: true, creditcard: false, ativo: 'money' });
+            setValues({ ...values, money: true, creditcard: false, botao: false });
+            metodoAtivo = 'money'
         } else if(event.target.name === 'creditcard') {
-            setValues({ ...values, money: false, creditcard: true, ativo: 'creditcard' });
+            setValues({ ...values, money: false, creditcard: true, botao: false });
+            metodoAtivo = 'creditcard'
         }
     }
-
+    
     return (
         <DefaultWrapper>
             <HistoryDivider showGoBack={true} head={'Meu carrinho'}/>
+            <button onClick={() => {console.log(preparaEnvio)}}>log</button>
             <AddressWraper>
                 <StyledTextHD>Endereço cadastrado:</StyledTextHD>
                 <StyledTextHD><strong>{userData.address}</strong></StyledTextHD>
             </AddressWraper>
             {1==2? emptyCart : cartItemsRender}
             <DivRight>
-                <StyledTextHD>Frete: R$00,00</StyledTextHD>
+                <StyledTextHD>Frete: R${props.RestDetails.shipping && props.RestDetails.shipping.toLocaleString("pt-BR", {minimumFractionDigits: 2} )}</StyledTextHD>
             </DivRight>
             <DivSpaceBet>
                 <StyledTextHD>SUBTOTAL:</StyledTextHD>
-                <StyledTextHD>R$000,00</StyledTextHD>
+                <StyledTextHD>R${somaCarrinho && somaCarrinho.toLocaleString("pt-BR", {minimumFractionDigits: 2} )}</StyledTextHD>
             </DivSpaceBet>
             <DivLeft>
                 <StyledTextHD>Forma de pagamento</StyledTextHD>
@@ -68,14 +86,16 @@ function Cart(props) {
                 </DivRadios>
             </DivLeft>
             <StyledButton>
-                <StyledTextHD>Confirmar</StyledTextHD>
+                <StyledTextHD disabled={values.botao}>Confirmar</StyledTextHD>
             </StyledButton>
             <Footer />
         </DefaultWrapper>
     );
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    RestDetails: state.SaveDetailInState, ItensCarrinho: state.saveAndRemoveProducts
+});
 
 const mapDispatchToProps = (dispatch) => ({
     doLogin: (inputUser, inputPass) => dispatch(doLogin(inputUser, inputPass)),

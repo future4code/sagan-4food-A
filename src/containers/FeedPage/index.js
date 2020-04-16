@@ -28,6 +28,7 @@ class FeedPage extends Component {
                                 name={restaurants.name}
                                 deliveryTime={restaurants.deliveryTime}
                                 shipping={restaurants.shipping}
+                                id={restaurants.id}
                             />
                         )
                     })}

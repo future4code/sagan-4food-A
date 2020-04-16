@@ -5,11 +5,19 @@ import {getActiveOrders} from '../../actions/login'
 import { connect } from 'react-redux'
 import { FooterWrapper, IconsDiv, IconsWrapper} from './styles'
 import PedidosAbertos from '../PedidosAbertos/PedidosAbertos'
+import Badge from '@material-ui/core/Badge';
+
 
 function Footer(props) {
     useEffect(() => {
         props.getActiveOrders()
     }, [])
+
+    let valorInicial = 0;
+    const itensCarrinho = props.ItensCarrinho.reduce(
+        (acumulador , valorAtual) => acumulador + valorAtual.quantity
+        ,valorInicial 
+    );
 
         return (
             <FooterWrapper>
@@ -33,7 +41,9 @@ function Footer(props) {
                 <IconsWrapper 
                 onClick={props.goToCart}
                 >
-                <img src={require("./Images/shopping-cart.png")} type="icon" alt="ícone clicável carrinho de pedidos"></img>
+                    <Badge badgeContent={itensCarrinho} color="secondary">
+                        <img src={require("./Images/shopping-cart.png")} type="icon" alt="ícone clicável carrinho de pedidos"></img>
+                    </Badge>
                 </IconsWrapper>
 
                 <IconsWrapper 
@@ -47,7 +57,7 @@ function Footer(props) {
         )
 }
 const mapStateToProps = state => ({
-    ActiveOrders: state.activeorders
+    ActiveOrders: state.activeorders, ItensCarrinho: state.saveAndRemoveProducts
 });
 const mapDispatchToProps = (dispatch) => ({
     // goToShoppingCart: () => dispatch (push(routes.shoppingCart)),

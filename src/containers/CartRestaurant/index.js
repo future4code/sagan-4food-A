@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-
+import { getRestaurantDetail } from "../../actions/RestaurantDetail";
+import { connect } from "react-redux";
+import {routes} from "../Router/index";
+import {push} from "connected-react-router";
 import { CardContent } from '@material-ui/core'
 import { CardWrapper, CardActionWrapper, CardMediaStyled, InfosRestaurantWrapper, RestaurantName, DeliveryTimeStyled, ShippingStyled } from './styles'
 
@@ -7,10 +10,13 @@ import { CardWrapper, CardActionWrapper, CardMediaStyled, InfosRestaurantWrapper
 class CartRestaurant extends Component {
 
     render() {
+        const handleWhitClick = () => {
+            this.props.getRestaurantDetail(this.props.id)
+            this.props.goToRestaurantDetails()
+        }
         return (
-
             <CardWrapper>
-                <CardActionWrapper onClick={this.props}>
+                <CardActionWrapper onClick={handleWhitClick}>
                     {/* inserir detalhe do restaurante com endereço. ^^ */}
                     <CardMediaStyled component="img" src={this.props.image} />
                     <CardContent>
@@ -27,4 +33,13 @@ class CartRestaurant extends Component {
     }
 }
 
-export default CartRestaurant
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = (dispatch) => {
+return {
+    getRestaurantDetail: (id) => dispatch(getRestaurantDetail(id)),
+    goToRestaurantDetails: () => dispatch(push(routes.RestaurantDetailPage))
+};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartRestaurant);
