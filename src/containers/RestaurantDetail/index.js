@@ -3,8 +3,8 @@ import CardMenu from "../../components/CardMenu/CardMenu";
 import { connect } from "react-redux";
 import { getRestaurantDetail } from "../../actions/RestaurantDetail";
 import styled from "styled-components";
-import Footer from '../../components/Footer/index'
-
+import Footer from "../../components/Footer/index";
+import CardRestaurante from "../../components/CardRestaurante/CardRestaurante";
 const Box = styled.div`
   width: 328px;
   height: 18px;
@@ -28,8 +28,22 @@ const RestaurantDetail = (props) => {
       return categoryRestaurantDuplicate.indexOf(category) === index;
     });
 
+  const restaurant = props.dataRestaurant;
+  console.log(restaurant && restaurant.logoUrl);
   return (
     <div>
+      {restaurant && (
+        <CardRestaurante
+          logoUrl={restaurant.logoUrl}
+          name={restaurant.name}
+          deliveryTime={restaurant.deliveryTime}
+          shipping={restaurant.shipping}
+          category={restaurant.category}
+          address={restaurant.address}
+        />
+      )}
+
+      {console.log(props.dataRestaurant)}
       {categoryRestaurantNoDuplicate &&
         categoryRestaurantNoDuplicate.map((item) => {
           return (
@@ -50,7 +64,7 @@ const RestaurantDetail = (props) => {
             </div>
           );
         })}
-        <Footer />
+      <Footer />
     </div>
   );
 };
