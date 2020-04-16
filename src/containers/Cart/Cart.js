@@ -11,10 +11,14 @@ import Divider from '@material-ui/core/Divider';
 function Cart(props) {
     const userData = JSON.parse(localStorage.getItem('user'))
 
-    let valorInicial = props.RestDetails.shipping;
     const somaCarrinho = props.ItensCarrinho.reduce(
         (acumulador , valorAtual) => acumulador + valorAtual.price
-        ,valorInicial 
+        , props.RestDetails.shipping 
+    );
+
+    const contaCarrinho = props.ItensCarrinho.reduce(
+        (acumulador , valorAtual) => acumulador + valorAtual.quantity
+        , 0 
     );
 
     const products = props.ItensCarrinho
@@ -75,7 +79,7 @@ function Cart(props) {
                 <StyledTextHD><strong>{userData.address}</strong></StyledTextHD>
             </AddressWraper>
             <StyledTextHD color={'error'} variant={'body1'} align={'center'}>{values.erroMsg}</StyledTextHD>
-            {products ? emptyCart : cartItemsRender}
+            {contaCarrinho === 0 ? emptyCart : cartItemsRender}
             <DivRight>
                 <StyledTextHD>Frete: R${props.RestDetails.shipping && props.RestDetails.shipping.toLocaleString("pt-BR", {minimumFractionDigits: 2} )}</StyledTextHD>
             </DivRight>
