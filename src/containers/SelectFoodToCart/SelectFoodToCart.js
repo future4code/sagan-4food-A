@@ -39,7 +39,7 @@ class SelectFoodToCart extends React.Component {
     const newProducts = {
       quantity: this.state.amount,
       id,
-      price,
+      price: this.state.amount * this.props.price,
       title,
       description,
       img,
