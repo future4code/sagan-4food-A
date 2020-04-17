@@ -15,8 +15,8 @@ import CardRestaurante from '../../components/CardRestaurante/CardRestaurante'
 
 function Login(props) {
 const [values, setValues] = React.useState({
-    user: "",
-    pass: "",
+    user: "astrodev@future4.com",
+    pass: "123456",
     passcError: false,
     showPassword: false
 });
