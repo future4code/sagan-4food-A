@@ -18,7 +18,7 @@ const userData = JSON.parse(localStorage.getItem('user'))
 
     return (
         <DefaultWrapper>
-                <HistoryDivider showGoBack={true} head={'Meu Perfil'}/>
+                <HistoryDivider showGoBack={true} showLogout={true} head={'Meu Perfil'}/>
             <MPdiv>
                 <div>
                     <StyledTextHD><strong>{userData.name}</strong></StyledTextHD>
@@ -48,7 +48,6 @@ const userData = JSON.parse(localStorage.getItem('user'))
                     totalPrice={item.totalPrice}
                     />
         ))}
-
             </DefaultWrapper>
             <Footer />
         </DefaultWrapper>

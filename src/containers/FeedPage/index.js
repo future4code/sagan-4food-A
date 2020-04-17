@@ -7,6 +7,8 @@ import { connect } from "react-redux";
 import { getRestaurants, setInputSearch } from "../../actions";
 import { ContentHomeWrapper, TextFieldSearchStyled, CategoryMenuStyled, CategoryMenuWrapper } from "./styles";
 import Loading from '../../components/Loading/index'
+import {StyledTextCat} from '../../style/styled'
+
 
 class FeedPage extends Component {
   componentDidMount() {
@@ -47,7 +49,7 @@ class FeedPage extends Component {
         <CategoryMenuWrapper>
           {categoryRestaurantNoDuplicate.map((categoryItem) => {
             return (
-              <CategoryMenuStyled onClick={() => handleSearchCategory(categoryItem)}>{categoryItem}</CategoryMenuStyled>
+              <CategoryMenuStyled onClick={() => handleSearchCategory(categoryItem)}><StyledTextCat>{categoryItem}</StyledTextCat></CategoryMenuStyled>
             )
           })}
         </CategoryMenuWrapper>
@@ -68,6 +70,7 @@ class FeedPage extends Component {
 
     let allRestaurantsFilter = (
       <>
+        <StyledTextCat color={'primary'} variant={'subtitle1'} onClick={handleInputClear}>Limpar Busca</StyledTextCat>
         {filteredRestaurantsList.map((restaurants) => {
           return (
             <CartRestaurant
@@ -79,7 +82,6 @@ class FeedPage extends Component {
             />
           );
         })}
-        <button onClick={handleInputClear}>Limpar Busca</button>
       </>
     );
 
