@@ -16,8 +16,7 @@ import {
   saveProducts,
   removeProdutcs,
 } from "../../actions/addAndRemoveProducts";
-import {StyledTextHD} from '../../style/styled'
-
+import { StyledTextHD } from "../../style/styled";
 
 class SelectFoodToCart extends React.Component {
   state = {
@@ -60,12 +59,14 @@ class SelectFoodToCart extends React.Component {
       <div>
         {products.find((food) => food.id === id) ? (
           <ButtonRemove onClick={() => this.handleRemoveItem(id)}>
-            <StyledTextHD color={'primary'} variant={'caption'}>Remover</StyledTextHD>
+            <StyledTextHD color={"primary"} variant={"caption"}>
+              Remover
+            </StyledTextHD>
           </ButtonRemove>
         ) : (
           <ButtonAdd onClick={() => this.handleClickOpen()}>
-            <StyledTextHD variant={'caption'}>Adicionar</StyledTextHD>
-            </ButtonAdd>
+            <StyledTextHD variant={"caption"}>Adicionar</StyledTextHD>
+          </ButtonAdd>
         )}
 
         <Dialog open={this.state.open} onClose={this.handleClose}>

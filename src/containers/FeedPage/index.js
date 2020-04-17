@@ -5,10 +5,14 @@ import SearchPlaceholder from "../SearchPlaceholder";
 import HistoryDivider from "../HistoryDivider/HistoryDivider";
 import { connect } from "react-redux";
 import { getRestaurants, setInputSearch } from "../../actions";
-import { ContentHomeWrapper, TextFieldSearchStyled, CategoryMenuStyled, CategoryMenuWrapper } from "./styles";
-import Loading from '../../components/Loading/index'
-import { StyledTextCat } from '../../style/styled'
-
+import {
+  ContentHomeWrapper,
+  TextFieldSearchStyled,
+  CategoryMenuStyled,
+  CategoryMenuWrapper,
+} from "./styles";
+import Loading from "../../components/Loading/index";
+import { StyledTextCat } from "../../style/styled";
 
 class FeedPage extends Component {
   componentDidMount() {
@@ -16,7 +20,6 @@ class FeedPage extends Component {
   }
 
   render() {
-
     const handleInputClear = () => {
       this.props.setInputSearch("");
       console.log("oi");
@@ -30,25 +33,33 @@ class FeedPage extends Component {
     const { restaurants, inputSearch } = this.props;
 
     const newRestaurantsList = [...restaurants];
-    const filteredRestaurantsList = newRestaurantsList.filter((restaurants) => restaurants.name.toLowerCase().includes(inputSearch.toLowerCase())
-      ||
-      restaurants.category.toLowerCase().includes(inputSearch.toLowerCase())
+    const filteredRestaurantsList = newRestaurantsList.filter(
+      (restaurants) =>
+        restaurants.name.toLowerCase().includes(inputSearch.toLowerCase()) ||
+        restaurants.category.toLowerCase().includes(inputSearch.toLowerCase())
     );
 
-    const categoryList = restaurants.map((restaurants) => { return (restaurants.category) })
+    const categoryList = restaurants.map((restaurants) => {
+      return restaurants.category;
+    });
 
-    const categoryRestaurantNoDuplicate = categoryList.filter((category, index) => {
-      return categoryList.indexOf(category) === index
-    })
-
+    const categoryRestaurantNoDuplicate = categoryList.filter(
+      (category, index) => {
+        return categoryList.indexOf(category) === index;
+      }
+    );
 
     let allRestaurants = (
       <>
         <CategoryMenuWrapper>
           {categoryRestaurantNoDuplicate.map((categoryItem) => {
             return (
-              <CategoryMenuStyled onClick={() => handleSearchCategory(categoryItem)}><StyledTextCat>{categoryItem}</StyledTextCat></CategoryMenuStyled>
-            )
+              <CategoryMenuStyled
+                onClick={() => handleSearchCategory(categoryItem)}
+              >
+                <StyledTextCat>{categoryItem}</StyledTextCat>
+              </CategoryMenuStyled>
+            );
           })}
         </CategoryMenuWrapper>
 
@@ -68,38 +79,41 @@ class FeedPage extends Component {
 
     let allRestaurantsFilter = (
       <>
-        <StyledTextCat color={'primary'} variant={'subtitle1'} onClick={handleInputClear}>Limpar Busca</StyledTextCat>
-        { 
-        filteredRestaurantsList.length == 0 ? "Não encontramos o restaurante :("
-        :
-        filteredRestaurantsList.map((restaurants) => {
-          return (
-            <CartRestaurant
-              image={restaurants.logoUrl}
-              name={restaurants.name}
-              deliveryTime={restaurants.deliveryTime}
-              shipping={restaurants.shipping}
-              id={restaurants.id}
-            />
-          );
-        })}
+        <StyledTextCat
+          color={"primary"}
+          variant={"subtitle1"}
+          onClick={handleInputClear}
+        >
+          Limpar Busca
+        </StyledTextCat>
+        {filteredRestaurantsList.length == 0
+          ? "Não encontramos o restaurante :("
+          : filteredRestaurantsList.map((restaurants) => {
+              return (
+                <CartRestaurant
+                  image={restaurants.logoUrl}
+                  name={restaurants.name}
+                  deliveryTime={restaurants.deliveryTime}
+                  shipping={restaurants.shipping}
+                  id={restaurants.id}
+                />
+              );
+            })}
       </>
     );
 
-    console.log(filteredRestaurantsList)
+    console.log(filteredRestaurantsList);
 
     return (
       <>
         <HistoryDivider head={"IFuture"} />
 
         <ContentHomeWrapper>
-
           <SearchPlaceholder restaurants={this.props.restaurants} />
 
           {this.props.inputSearch === ""
             ? allRestaurants
             : allRestaurantsFilter}
-
         </ContentHomeWrapper>
 
         {this.props.restaurants[0] ? "" : <Loading open={true} />}

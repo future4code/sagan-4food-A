@@ -1,28 +1,25 @@
 const initialState = {
-
-    filteredRestaurants: [],
-    inputSearch: ""
-
-}
+  filteredRestaurants: [],
+  inputSearch: "",
+};
 
 const filterSearch = (state = initialState, action) => {
-    switch (action.type) {
+  switch (action.type) {
+    case "SET_FILTERED_RESTAURANTS":
+      return {
+        ...state,
+        filteredRestaurants: action.payload.restaurants,
+      };
 
-        case 'SET_FILTERED_RESTAURANTS':
-            return {
-                ...state,
-                filteredRestaurants: action.payload.restaurants
-            }
+    case "SET_INPUT_SEARCH":
+      return {
+        ...state,
+        inputSearch: action.payload.inputData,
+      };
 
-        case "SET_INPUT_SEARCH":
-            return {
-                ...state,
-                inputSearch: action.payload.inputData
-            }
+    default:
+      return state;
+  }
+};
 
-        default:
-            return state
-    }
-}
-
-export default filterSearch
+export default filterSearch;

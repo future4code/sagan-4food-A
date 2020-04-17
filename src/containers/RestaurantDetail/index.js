@@ -6,12 +6,11 @@ import Footer from "../../components/Footer/index";
 import CardRestaurante from "../../components/CardRestaurante/CardRestaurante";
 import { DivTitle, ContainerWrapper } from "./styled";
 import HistoryDivider from "../HistoryDivider/HistoryDivider";
-import Loading from '../../components/Loading/index'
-import { StyledText } from '../../style/styled'
-import Divider from '@material-ui/core/Divider';
+import Loading from "../../components/Loading/index";
+import { StyledText } from "../../style/styled";
+import Divider from "@material-ui/core/Divider";
 
 const RestaurantDetail = (props) => {
-  
   const products = props.dataRestaurant.products;
   const categoryRestaurantDuplicate =
     products &&
@@ -30,7 +29,6 @@ const RestaurantDetail = (props) => {
 
   return (
     <ContainerWrapper>
-
       <HistoryDivider head={"Restaurante"} showGoBack={true} />
       {restaurant && (
         <CardRestaurante
@@ -48,7 +46,9 @@ const RestaurantDetail = (props) => {
         categoryRestaurantNoDuplicate.map((item) => {
           return (
             <div>
-              <DivTitle key={item}><StyledText>{item}</StyledText></DivTitle>
+              <DivTitle key={item}>
+                <StyledText>{item}</StyledText>
+              </DivTitle>
               <Divider />
               {products
                 .filter((elemento) => elemento.category === item)
@@ -67,7 +67,6 @@ const RestaurantDetail = (props) => {
         })}
       {props.dataRestaurant ? "" : <Loading open={true} />}
       <Footer />
-
     </ContainerWrapper>
   );
 };

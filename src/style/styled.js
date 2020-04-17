@@ -27,8 +27,8 @@ export const StyledText = styled(Typography)`
 export const StyledTextHD = styled(Typography)``;
 
 export const StyledTextCat = styled(Typography)`
-margin-right: 20px;
-margin-left: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
 `;
 
 export const StyledTextWhite = styled(Typography)`

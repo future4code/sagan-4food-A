@@ -1,15 +1,13 @@
-const initialState = []
-
+const initialState = [];
 
 const restaurants = (state = initialState, action) => {
-    switch (action.type) {
+  switch (action.type) {
+    case "GET_RESTAURANTS":
+      return (state = action.payload);
 
-        case 'GET_RESTAURANTS':
-            return state = action.payload
-            
-        default:
-            return state
-    } 
-}
+    default:
+      return state;
+  }
+};
 
-export default restaurants
+export default restaurants;

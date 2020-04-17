@@ -5,7 +5,7 @@ import {
   MuiThemeProvider,
   createGenerateClassName,
   jssPreset,
-  CssBaseline
+  CssBaseline,
 } from "@material-ui/core";
 import JssProvider from "react-jss/lib/JssProvider";
 import { create } from "jss";
@@ -20,7 +20,7 @@ const generateClassName = createGenerateClassName();
 const jss = create({
   ...jssPreset(),
   // We define a custom insertion point that JSS will look for injecting the styles in the DOM.
-  insertionPoint: document.getElementById("jss-insertion-point")
+  insertionPoint: document.getElementById("jss-insertion-point"),
 });
 
 export const history = createBrowserHistory();
@@ -29,7 +29,7 @@ const middlewares = [
   applyMiddleware(routerMiddleware(history), thunk),
   window.__REDUX_DEVTOOLS_EXTENSION__
     ? window.__REDUX_DEVTOOLS_EXTENSION__()
-    : f => f
+    : (f) => f,
 ];
 
 const store = createStore(generateReducers(history), compose(...middlewares));
