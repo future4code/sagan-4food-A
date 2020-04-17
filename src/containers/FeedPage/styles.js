@@ -7,15 +7,15 @@ export const ContentHomeWrapper = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100%;
-  position: relative;
-  margin-bottom: -50px;
-`;
+  margin-bottom: 50px;
+`
+
 export const TextFieldSearchStyled = styled(TextField)`
   width: 328px;
   height: 56px;
   border-radius: 2px;
   border: solid 1px #b8b8b8;
-`;
+`
 
 export const CategoryMenuWrapper = styled.div`
   width: 100%;
