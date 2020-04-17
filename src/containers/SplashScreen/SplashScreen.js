@@ -1,16 +1,16 @@
 import React from 'react';
-import {connect} from "react-redux";
-import {routes} from "../Router/index";
-import {push} from "connected-react-router";
+import { connect } from "react-redux";
+import { routes } from "../Router/index";
+import { push } from "connected-react-router";
 import logoimg from '../../img/logo-future-eats.svg'
-import {WrapperRed, LoginImg} from '../../style/styled'
+import { WrapperRed, LoginImg } from '../../style/styled'
 import Fade from '@material-ui/core/Fade';
 
 function SplashScreen(props) {
     const handleWhithClick = (event) => {
         event.preventDefault()
         const token = localStorage.getItem('token')
-        if(token === null){
+        if (token === null) {
             props.goLogin()
         } else {
             props.goHome()
@@ -27,11 +27,9 @@ function SplashScreen(props) {
     );
 }
 
-const mapStateToProps = state => ({});
-
 const mapDispatchToProps = (dispatch) => ({
     goLogin: () => dispatch(push(routes.login)),
     goHome: () => dispatch(push(routes.feed))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SplashScreen)
+export default connect(null, mapDispatchToProps)(SplashScreen)

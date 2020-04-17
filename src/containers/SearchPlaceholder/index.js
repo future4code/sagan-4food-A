@@ -1,19 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setFilteredRestaurants, setInputSearch, getRestaurants } from '../../actions/index'
-import { InputSearchStyled, InputWrapper } from './styles'
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
+
+import { InputSearchStyled, InputWrapper } from './styles'
 
 class SearchPlaceholder extends Component {
 
     onChangeInputSearch = (event) => {
         this.props.setInputSearch(event.target.value)
     }
-    
+
     render() {
         return (
             <InputWrapper autoComplete="on">
+
                 <InputSearchStyled
                     value={this.props.inputSearch}
                     placeholder="Restaurante"
@@ -22,10 +24,11 @@ class SearchPlaceholder extends Component {
                     onChange={this.onChangeInputSearch}
                     startAdornment={
                         <InputAdornment position="start">
-                        <SearchIcon color={'secondary'} />
+                            <SearchIcon color={'secondary'} />
                         </InputAdornment>
                     }
                 />
+
             </InputWrapper>
         )
     }
