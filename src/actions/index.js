@@ -9,7 +9,6 @@ export const getRestaurants = () => async (dispatch) => {
         auth: token,
       },
     });
-    console.log(response.data.restaurants);
     dispatch(getRestaurantsToReducer(response.data.restaurants));
   } catch (error) {
     alert("Não foi possível carregar lista de restuarantes!");
