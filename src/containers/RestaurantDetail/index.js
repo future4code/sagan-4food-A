@@ -4,13 +4,14 @@ import { connect } from "react-redux";
 import { getRestaurantDetail } from "../../actions/RestaurantDetail";
 import Footer from "../../components/Footer/index";
 import CardRestaurante from "../../components/CardRestaurante/CardRestaurante";
-import { DivTitle, Hr } from "./styled";
+import { DivTitle, ContainerWrapper } from "./styled";
 import HistoryDivider from "../HistoryDivider/HistoryDivider";
 import Loading from '../../components/Loading/index'
-import {StyledText} from '../../style/styled'
+import { StyledText } from '../../style/styled'
 import Divider from '@material-ui/core/Divider';
 
 const RestaurantDetail = (props) => {
+  
   const products = props.dataRestaurant.products;
   const categoryRestaurantDuplicate =
     products &&
@@ -26,8 +27,10 @@ const RestaurantDetail = (props) => {
 
   const restaurant = props.dataRestaurant;
   console.log(restaurant && restaurant.logoUrl);
+
   return (
-    <div>
+    <ContainerWrapper>
+
       <HistoryDivider head={"Restaurante"} showGoBack={true} />
       {restaurant && (
         <CardRestaurante
@@ -62,9 +65,10 @@ const RestaurantDetail = (props) => {
             </div>
           );
         })}
-        {props.dataRestaurant ? "" : <Loading open={true} />}
+      {props.dataRestaurant ? "" : <Loading open={true} />}
       <Footer />
-    </div>
+
+    </ContainerWrapper>
   );
 };
 
