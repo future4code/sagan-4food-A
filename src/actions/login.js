@@ -22,6 +22,16 @@ export const doLogin = (user, pass) => async (dispatch) => {
     }
 }
 
+export const doLogout = () => (dispatch) => {
+    try {
+        dispatch(push(routes.login))
+        localStorage.clear()
+    } catch (e) {
+        alert("Erro. Entre em contato conosco")
+        console.error(e)
+    }
+}
+
 export const doSignUp = (name, email, cpf, password) => (dispatch) => {
     const userSignup = axios.post(`${BaseUrl}/signup`, {
         name, email, cpf, password

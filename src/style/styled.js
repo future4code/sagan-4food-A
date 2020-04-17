@@ -25,6 +25,12 @@ export const StyledText = styled(Typography)`
   margin-top: 26px;
 `;
 export const StyledTextHD = styled(Typography)``;
+
+export const StyledTextCat = styled(Typography)`
+margin-right: 20px;
+margin-left: 20px;
+`;
+
 export const StyledTextWhite = styled(Typography)`
   color: white;
 `;
@@ -74,9 +80,10 @@ export const DefaultWrapper = styled.div`
   align-items: center;
 `;
 export const HDWrapperCont = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
   align-items: center;
-  justify-content: left;
+  justify-content: center;
   padding: 5px;
 `;
 export const HDWrapper = styled.div`
@@ -90,7 +97,7 @@ export const AddressWraper = styled.div`
 export const HDWrapperCenter = styled.div`
   align-self: center;
   text-align: center;
-  width: 85%;
+  width: 100%;
 `;
 export const WrapperRed = styled.div`
   background-color: #e8222e;

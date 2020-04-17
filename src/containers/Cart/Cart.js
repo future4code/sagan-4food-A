@@ -146,23 +146,23 @@ function Cart(props) {
       <DivLeft>
         <StyledTextHD>Forma de pagamento</StyledTextHD>
         <Divider />
-        <DivRadios>
+        <DivRadios name="money" onClick={handleWhitRadio} >
           <StyledRadio
             value="money"
             name="money"
             checked={values.money}
             onChange={handleWhitRadio}
           />
-          <StyledTextHD>Dinheiro</StyledTextHD>
+          <StyledTextHD name="money" onClick={handleWhitRadio} >Dinheiro</StyledTextHD>
         </DivRadios>
-        <DivRadios>
+        <DivRadios name="creditcard" onClick={handleWhitRadio} >
           <StyledRadio
             value="creditcard"
             name="creditcard"
             checked={values.creditcard}
             onChange={handleWhitRadio}
           />
-          <StyledTextHD>Cartão de crédito</StyledTextHD>
+          <StyledTextHD name="creditcard" onClick={handleWhitRadio} >Cartão de crédito</StyledTextHD>
         </DivRadios>
       </DivLeft>
       <StyledButton>
