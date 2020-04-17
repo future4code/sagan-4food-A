@@ -5,8 +5,9 @@ import SearchPlaceholder from "../SearchPlaceholder";
 import HistoryDivider from "../HistoryDivider/HistoryDivider";
 import { connect } from "react-redux";
 import { getRestaurants, setInputSearch } from "../../actions";
-import { ContentHomeWrapper, TextFieldSearchStyled, CategoryMenuStyled, CategoryMenuWrapper } from "./styles";
 import Loading from '../../components/Loading/index'
+
+import { ContentHomeWrapper, CategoryMenuStyled, CategoryMenuWrapper } from "./styles";
 import { StyledTextCat } from '../../style/styled'
 
 
@@ -19,12 +20,10 @@ class FeedPage extends Component {
 
     const handleInputClear = () => {
       this.props.setInputSearch("");
-      console.log("oi");
     };
 
     const handleSearchCategory = (category) => {
       this.props.setInputSearch(category);
-      console.log("oi");
     };
 
     const { restaurants, inputSearch } = this.props;
@@ -40,7 +39,6 @@ class FeedPage extends Component {
     const categoryRestaurantNoDuplicate = categoryList.filter((category, index) => {
       return categoryList.indexOf(category) === index
     })
-
 
     let allRestaurants = (
       <>
@@ -64,31 +62,31 @@ class FeedPage extends Component {
           );
         })}
       </>
-    );
+    )
+
 
     let allRestaurantsFilter = (
       <>
         <StyledTextCat color={'primary'} variant={'subtitle1'} onClick={handleInputClear}>Limpar Busca</StyledTextCat>
-        { 
-        filteredRestaurantsList.length == 0 ? "Não encontramos o restaurante :("
-        :
-        filteredRestaurantsList.map((restaurants) => {
-          return (
-            <CartRestaurant
-              image={restaurants.logoUrl}
-              name={restaurants.name}
-              deliveryTime={restaurants.deliveryTime}
-              shipping={restaurants.shipping}
-              id={restaurants.id}
-            />
-          );
-        })}
+        {
+          filteredRestaurantsList.length === 0 ? "Não encontramos o restaurante :("
+            :
+            filteredRestaurantsList.map((restaurants) => {
+              return (
+                <CartRestaurant
+                  image={restaurants.logoUrl}
+                  name={restaurants.name}
+                  deliveryTime={restaurants.deliveryTime}
+                  shipping={restaurants.shipping}
+                  id={restaurants.id}
+                />
+              )
+            })}
       </>
-    );
-
-    console.log(filteredRestaurantsList)
+    )
 
     return (
+
       <>
         <HistoryDivider head={"IFuture"} />
 
@@ -106,7 +104,7 @@ class FeedPage extends Component {
 
         <Footer />
       </>
-    );
+    )
   }
 }
 
@@ -121,4 +119,4 @@ const mapDispatchToProps = (dispatch) => ({
   setInputSearch: (inputData) => dispatch(setInputSearch(inputData)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FeedPage);
+export default connect(mapStateToProps, mapDispatchToProps)(FeedPage)

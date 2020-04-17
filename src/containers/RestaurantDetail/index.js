@@ -11,7 +11,7 @@ import { StyledText } from '../../style/styled'
 import Divider from '@material-ui/core/Divider';
 
 const RestaurantDetail = (props) => {
-  
+
   const products = props.dataRestaurant.products;
   const categoryRestaurantDuplicate =
     products &&

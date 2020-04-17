@@ -43,10 +43,8 @@ const handleWhithSubmit = async (event) => {
     );
 }
 
-const mapStateToProps = state => ({});
-
 const mapDispatchToProps = (dispatch) => ({
     doNewAddress: (data) => dispatch(doNewAddress(data)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewAddress)
+export default connect(null, mapDispatchToProps)(NewAddress)
