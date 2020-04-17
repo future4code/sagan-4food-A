@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { getRestaurants, setInputSearch } from "../../actions";
 import { ContentHomeWrapper, TextFieldSearchStyled, CategoryMenuStyled, CategoryMenuWrapper } from "./styles";
 import Loading from '../../components/Loading/index'
-import {StyledTextCat} from '../../style/styled'
+import { StyledTextCat } from '../../style/styled'
 
 
 class FeedPage extends Component {
@@ -16,7 +16,6 @@ class FeedPage extends Component {
   }
 
   render() {
-    // console.log(this.props.restaurants.name)
 
     const handleInputClear = () => {
       this.props.setInputSearch("");
@@ -28,7 +27,7 @@ class FeedPage extends Component {
       console.log("oi");
     };
 
-    const { restaurants, filteredRestaurants, inputSearch } = this.props;
+    const { restaurants, inputSearch } = this.props;
 
     const newRestaurantsList = [...restaurants];
     const filteredRestaurantsList = newRestaurantsList.filter((restaurants) => restaurants.name.toLowerCase().includes(inputSearch.toLowerCase())
@@ -42,7 +41,6 @@ class FeedPage extends Component {
       return categoryList.indexOf(category) === index
     })
 
-    console.log(categoryRestaurantNoDuplicate)
 
     let allRestaurants = (
       <>
@@ -71,7 +69,10 @@ class FeedPage extends Component {
     let allRestaurantsFilter = (
       <>
         <StyledTextCat color={'primary'} variant={'subtitle1'} onClick={handleInputClear}>Limpar Busca</StyledTextCat>
-        {filteredRestaurantsList.map((restaurants) => {
+        { 
+        filteredRestaurantsList.length == 0 ? "Não encontramos o restaurante :("
+        :
+        filteredRestaurantsList.map((restaurants) => {
           return (
             <CartRestaurant
               image={restaurants.logoUrl}
@@ -85,18 +86,24 @@ class FeedPage extends Component {
       </>
     );
 
+    console.log(filteredRestaurantsList)
+
     return (
       <>
         <HistoryDivider head={"IFuture"} />
 
         <ContentHomeWrapper>
+
           <SearchPlaceholder restaurants={this.props.restaurants} />
-          {/* FALTA MENU COM SCROLL LATERAL */}
+
           {this.props.inputSearch === ""
             ? allRestaurants
             : allRestaurantsFilter}
+
         </ContentHomeWrapper>
+
         {this.props.restaurants[0] ? "" : <Loading open={true} />}
+
         <Footer />
       </>
     );
