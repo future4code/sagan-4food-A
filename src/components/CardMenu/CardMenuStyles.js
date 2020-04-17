@@ -71,4 +71,5 @@ export const ButtonRemove = styled(Button)`
 
 export const CardContentMenu = styled(CardContent)`
   position: relative;
+  width: 100%;
 `;
